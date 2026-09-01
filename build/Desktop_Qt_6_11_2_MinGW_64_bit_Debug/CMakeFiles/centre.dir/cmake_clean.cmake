@@ -1,0 +1,28 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/centre_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/centre_autogen.dir/ParseCache.txt"
+  "centre_autogen"
+  "CMakeFiles/centre.dir/centre_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/centre.dir/centre_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/centre.dir/cours.cpp.obj"
+  "CMakeFiles/centre.dir/cours.cpp.obj.d"
+  "CMakeFiles/centre.dir/database.cpp.obj"
+  "CMakeFiles/centre.dir/database.cpp.obj.d"
+  "CMakeFiles/centre.dir/formateur.cpp.obj"
+  "CMakeFiles/centre.dir/formateur.cpp.obj.d"
+  "CMakeFiles/centre.dir/main.cpp.obj"
+  "CMakeFiles/centre.dir/main.cpp.obj.d"
+  "CMakeFiles/centre.dir/mainwindow.cpp.obj"
+  "CMakeFiles/centre.dir/mainwindow.cpp.obj.d"
+  "centre.exe"
+  "centre.exe.manifest"
+  "centre.pdb"
+  "centre_autogen/mocs_compilation.cpp"
+  "centre_autogen/timestamp"
+  "libcentre.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/centre.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
