@@ -7,12 +7,16 @@
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QDoubleValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QSqlQueryModel>
 #include <QHeaderView>
+#include <QDate>
 
-// ==========================================
+
+// =====================================================
 // CONSTRUCTEUR
-// ==========================================
+// =====================================================
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,34 +24,82 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // ------------------------------------------
-    // Page affichée au démarrage
-    // ------------------------------------------
+
+    // =================================================
+    // PAGE PAR DEFAUT
+    // =================================================
+
     ui->stackedWidget->setCurrentWidget(
         ui->pageFormateurs
         );
 
 
-    // ------------------------------------------
-    // CONTRÔLES DE SAISIE
-    // ------------------------------------------
+    // =================================================
+    // VALIDATION FORMATEUR
+    // =================================================
 
-    // ID Formateur : entier positif
+    // ID Formateur
     ui->editIdFormateur->setValidator(
         new QIntValidator(1, 999999, this)
         );
 
-    // ID Cours : entier positif
+
+    // Salaire
+    QDoubleValidator *salaireValidator =
+        new QDoubleValidator(
+            0,
+            1000000,
+            2,
+            this
+            );
+
+    salaireValidator->setNotation(
+        QDoubleValidator::StandardNotation
+        );
+
+    ui->editSalaire->setValidator(
+        salaireValidator
+        );
+
+
+    // Téléphone : chiffres uniquement
+    QRegularExpression telephoneRegex(
+        "^[0-9]{0,20}$"
+        );
+
+    ui->editTelephone->setValidator(
+        new QRegularExpressionValidator(
+            telephoneRegex,
+            this
+            )
+        );
+
+
+    // Date embauche
+    ui->dateEditEmbauche->setDate(
+        QDate::currentDate()
+        );
+
+    ui->dateEditEmbauche->setCalendarPopup(true);
+
+
+    // =================================================
+    // VALIDATION COURS
+    // =================================================
+
+    // ID Cours
     ui->editIdCours->setValidator(
         new QIntValidator(1, 999999, this)
         );
 
-    // Durée : entier positif
+
+    // Durée
     ui->editDuree->setValidator(
         new QIntValidator(1, 10000, this)
         );
 
-    // Prix : nombre décimal positif
+
+    // Prix
     QDoubleValidator *prixValidator =
         new QDoubleValidator(
             0,
@@ -60,21 +112,47 @@ MainWindow::MainWindow(QWidget *parent)
         QDoubleValidator::StandardNotation
         );
 
-    ui->editPrix->setValidator(prixValidator);
+    ui->editPrix->setValidator(
+        prixValidator
+        );
 
 
-    // ------------------------------------------
-    // Charger les données au démarrage
-    // ------------------------------------------
+    // Date début
+    ui->dateEditDebut->setDate(
+        QDate::currentDate()
+        );
+
+    ui->dateEditDebut->setCalendarPopup(true);
+
+
+    // =================================================
+    // NIVEAUX
+    // =================================================
+
+    // Seulement si tu ne les as pas déjà ajoutés
+    // dans Qt Designer
+
+    if (ui->comboNiveau->count() == 0)
+    {
+        ui->comboNiveau->addItem("Débutant");
+        ui->comboNiveau->addItem("Intermédiaire");
+        ui->comboNiveau->addItem("Avancé");
+    }
+
+
+    // =================================================
+    // CHARGEMENT INITIAL
+    // =================================================
 
     afficherFormateurs();
+
     chargerFormateursCombo();
 }
 
 
-// ==========================================
+// =====================================================
 // DESTRUCTEUR
-// ==========================================
+// =====================================================
 
 MainWindow::~MainWindow()
 {
@@ -82,9 +160,9 @@ MainWindow::~MainWindow()
 }
 
 
-// ==========================================
+// =====================================================
 // NAVIGATION
-// ==========================================
+// =====================================================
 
 void MainWindow::on_btnFormateurs_clicked()
 {
@@ -108,13 +186,21 @@ void MainWindow::on_btnCours_clicked()
 }
 
 
-// ==========================================
-// FORMATEUR : AJOUTER
-// ==========================================
+
+// =====================================================
+// =====================================================
+//                    FORMATEURS
+// =====================================================
+// =====================================================
+
+
+// =====================================================
+// AJOUTER FORMATEUR
+// =====================================================
 
 void MainWindow::on_btnAjouterFormateur_clicked()
 {
-    // Vérification champs obligatoires
+    // Champs obligatoires Oracle
     if (ui->editIdFormateur->text().isEmpty() ||
         ui->editNom->text().trimmed().isEmpty() ||
         ui->editPrenom->text().trimmed().isEmpty() ||
@@ -122,13 +208,40 @@ void MainWindow::on_btnAjouterFormateur_clicked()
     {
         QMessageBox::warning(
             this,
-            "Champs obligatoires",
-            "Veuillez remplir ID, Nom, Prénom et Email."
+            "Attention",
+            "ID, Nom, Prénom et Email sont obligatoires."
             );
 
         return;
     }
 
+
+    // -------------------------
+    // Vérification email
+    // -------------------------
+
+    QString email =
+        ui->editEmail->text().trimmed();
+
+    QRegularExpression emailRegex(
+        "^[\\w\\.%-]+@[\\w\\.-]+\\.[A-Za-z]{2,}$"
+        );
+
+    if (!emailRegex.match(email).hasMatch())
+    {
+        QMessageBox::warning(
+            this,
+            "Email invalide",
+            "Veuillez saisir une adresse email valide."
+            );
+
+        return;
+    }
+
+
+    // -------------------------
+    // Récupération des champs
+    // -------------------------
 
     int id =
         ui->editIdFormateur->text().toInt();
@@ -139,9 +252,6 @@ void MainWindow::on_btnAjouterFormateur_clicked()
     QString prenom =
         ui->editPrenom->text().trimmed();
 
-    QString email =
-        ui->editEmail->text().trimmed();
-
     QString telephone =
         ui->editTelephone->text().trimmed();
 
@@ -149,15 +259,40 @@ void MainWindow::on_btnAjouterFormateur_clicked()
         ui->editSpecialite->text().trimmed();
 
 
+    QString texteSalaire =
+        ui->editSalaire->text();
+
+    texteSalaire.replace(",", ".");
+
+    double salaire =
+        texteSalaire.isEmpty()
+            ? 0
+            : texteSalaire.toDouble();
+
+
+    QDate dateEmbauche =
+        ui->dateEditEmbauche->date();
+
+
+    // -------------------------
+    // Objet Formateur
+    // -------------------------
+
     Formateur formateur(
         id,
         nom,
         prenom,
         email,
         telephone,
-        specialite
+        specialite,
+        salaire,
+        dateEmbauche
         );
 
+
+    // -------------------------
+    // Ajout
+    // -------------------------
 
     if (formateur.ajouter())
     {
@@ -184,9 +319,9 @@ void MainWindow::on_btnAjouterFormateur_clicked()
 }
 
 
-// ==========================================
-// FORMATEUR : MODIFIER
-// ==========================================
+// =====================================================
+// MODIFIER FORMATEUR
+// =====================================================
 
 void MainWindow::on_btnModifierFormateur_clicked()
 {
@@ -202,6 +337,41 @@ void MainWindow::on_btnModifierFormateur_clicked()
     }
 
 
+    if (ui->editNom->text().trimmed().isEmpty() ||
+        ui->editPrenom->text().trimmed().isEmpty() ||
+        ui->editEmail->text().trimmed().isEmpty())
+    {
+        QMessageBox::warning(
+            this,
+            "Attention",
+            "Nom, Prénom et Email sont obligatoires."
+            );
+
+        return;
+    }
+
+
+    QString email =
+        ui->editEmail->text().trimmed();
+
+
+    QRegularExpression emailRegex(
+        "^[\\w\\.%-]+@[\\w\\.-]+\\.[A-Za-z]{2,}$"
+        );
+
+
+    if (!emailRegex.match(email).hasMatch())
+    {
+        QMessageBox::warning(
+            this,
+            "Email invalide",
+            "Veuillez saisir une adresse email valide."
+            );
+
+        return;
+    }
+
+
     int id =
         ui->editIdFormateur->text().toInt();
 
@@ -211,9 +381,6 @@ void MainWindow::on_btnModifierFormateur_clicked()
     QString prenom =
         ui->editPrenom->text().trimmed();
 
-    QString email =
-        ui->editEmail->text().trimmed();
-
     QString telephone =
         ui->editTelephone->text().trimmed();
 
@@ -221,18 +388,19 @@ void MainWindow::on_btnModifierFormateur_clicked()
         ui->editSpecialite->text().trimmed();
 
 
-    if (nom.isEmpty() ||
-        prenom.isEmpty() ||
-        email.isEmpty())
-    {
-        QMessageBox::warning(
-            this,
-            "Attention",
-            "Nom, prénom et email sont obligatoires."
-            );
+    QString texteSalaire =
+        ui->editSalaire->text();
 
-        return;
-    }
+    texteSalaire.replace(",", ".");
+
+    double salaire =
+        texteSalaire.isEmpty()
+            ? 0
+            : texteSalaire.toDouble();
+
+
+    QDate dateEmbauche =
+        ui->dateEditEmbauche->date();
 
 
     Formateur formateur(
@@ -241,7 +409,9 @@ void MainWindow::on_btnModifierFormateur_clicked()
         prenom,
         email,
         telephone,
-        specialite
+        specialite,
+        salaire,
+        dateEmbauche
         );
 
 
@@ -270,9 +440,9 @@ void MainWindow::on_btnModifierFormateur_clicked()
 }
 
 
-// ==========================================
-// FORMATEUR : SUPPRIMER
-// ==========================================
+// =====================================================
+// SUPPRIMER FORMATEUR
+// =====================================================
 
 void MainWindow::on_btnSupprimerFormateur_clicked()
 {
@@ -281,7 +451,7 @@ void MainWindow::on_btnSupprimerFormateur_clicked()
         QMessageBox::warning(
             this,
             "Attention",
-            "Veuillez saisir l'ID du formateur à supprimer."
+            "Veuillez saisir l'ID du formateur."
             );
 
         return;
@@ -292,14 +462,13 @@ void MainWindow::on_btnSupprimerFormateur_clicked()
         ui->editIdFormateur->text().toInt();
 
 
-    QMessageBox::StandardButton confirmation;
-
-    confirmation = QMessageBox::question(
-        this,
-        "Confirmation",
-        "Voulez-vous vraiment supprimer ce formateur ?",
-        QMessageBox::Yes | QMessageBox::No
-        );
+    QMessageBox::StandardButton confirmation =
+        QMessageBox::question(
+            this,
+            "Confirmation",
+            "Voulez-vous vraiment supprimer ce formateur ?",
+            QMessageBox::Yes | QMessageBox::No
+            );
 
 
     if (confirmation != QMessageBox::Yes)
@@ -331,15 +500,15 @@ void MainWindow::on_btnSupprimerFormateur_clicked()
             this,
             "Erreur",
             "Suppression impossible.\n"
-            "Le formateur possède peut-être des cours."
+            "Le formateur peut être associé à un cours."
             );
     }
 }
 
 
-// ==========================================
-// FORMATEUR : AFFICHER
-// ==========================================
+// =====================================================
+// BOUTON AFFICHER FORMATEURS
+// =====================================================
 
 void MainWindow::on_btnAfficherFormateurs_clicked()
 {
@@ -347,16 +516,46 @@ void MainWindow::on_btnAfficherFormateurs_clicked()
 }
 
 
+// =====================================================
+// AFFICHAGE TABLE FORMATEURS
+// =====================================================
+
 void MainWindow::afficherFormateurs()
 {
     Formateur formateur;
 
-    ui->tableFormateurs->setModel(
-        formateur.afficher()
+    QSqlQueryModel *model =
+        formateur.afficher();
+
+
+    if (model == nullptr)
+    {
+        QMessageBox::critical(
+            this,
+            "Erreur",
+            "Impossible de charger les formateurs."
+            );
+
+        return;
+    }
+
+
+    ui->tableFormateurs->setModel(model);
+
+
+    // Sélection d'une ligne complète
+    ui->tableFormateurs->setSelectionBehavior(
+        QAbstractItemView::SelectRows
         );
+
+    ui->tableFormateurs->setSelectionMode(
+        QAbstractItemView::SingleSelection
+        );
+
 
     ui->tableFormateurs
         ->resizeColumnsToContents();
+
 
     ui->tableFormateurs
         ->horizontalHeader()
@@ -364,26 +563,39 @@ void MainWindow::afficherFormateurs()
 }
 
 
-// ==========================================
-// FORMATEUR : VIDER LES CHAMPS
-// ==========================================
+// =====================================================
+// VIDER CHAMPS FORMATEUR
+// =====================================================
 
 void MainWindow::viderChampsFormateur()
 {
     ui->editIdFormateur->clear();
+
     ui->editNom->clear();
+
     ui->editPrenom->clear();
+
     ui->editEmail->clear();
+
     ui->editTelephone->clear();
+
     ui->editSpecialite->clear();
+
+    ui->editSalaire->clear();
+
+
+    ui->dateEditEmbauche->setDate(
+        QDate::currentDate()
+        );
+
 
     ui->editIdFormateur->setFocus();
 }
 
 
-// ==========================================
-// COMBO BOX DES FORMATEURS
-// ==========================================
+// =====================================================
+// CHARGER FORMATEURS DANS COMBOBOX
+// =====================================================
 
 void MainWindow::chargerFormateursCombo()
 {
@@ -404,7 +616,7 @@ void MainWindow::chargerFormateursCombo()
 
     for (int ligne = 0;
          ligne < model->rowCount();
-         ligne++)
+         ++ligne)
     {
         int id =
             model->data(
@@ -428,8 +640,8 @@ void MainWindow::chargerFormateursCombo()
             nom + " " + prenom;
 
 
-        // texte affiché = nom + prénom
-        // donnée cachée = ID_FORMATEUR
+        // Le nom est affiché
+        // L'ID est stocké en donnée cachée
         ui->comboFormateur->addItem(
             nomComplet,
             id
@@ -441,33 +653,40 @@ void MainWindow::chargerFormateursCombo()
 }
 
 
-// ==========================================
-// COURS : AJOUTER
-// ==========================================
+
+// =====================================================
+// =====================================================
+//                       COURS
+// =====================================================
+// =====================================================
+
+
+// =====================================================
+// AJOUTER COURS
+// =====================================================
 
 void MainWindow::on_btnAjouterCours_clicked()
 {
+    // ID + nom obligatoires dans Oracle
     if (ui->editIdCours->text().isEmpty() ||
-        ui->editNomCours->text().trimmed().isEmpty() ||
-        ui->editDuree->text().isEmpty() ||
-        ui->editPrix->text().isEmpty())
+        ui->editNomCours->text().trimmed().isEmpty())
     {
         QMessageBox::warning(
             this,
-            "Champs obligatoires",
-            "Veuillez remplir tous les champs du cours."
+            "Attention",
+            "ID et Nom du cours sont obligatoires."
             );
 
         return;
     }
 
 
-    if (ui->comboFormateur->currentIndex() == -1)
+    if (ui->comboFormateur->currentIndex() < 0)
     {
         QMessageBox::warning(
             this,
-            "Formateur",
-            "Veuillez choisir un formateur."
+            "Attention",
+            "Veuillez sélectionner un formateur."
             );
 
         return;
@@ -477,14 +696,45 @@ void MainWindow::on_btnAjouterCours_clicked()
     int idCours =
         ui->editIdCours->text().toInt();
 
+
     QString nomCours =
-        ui->editNomCours->text().trimmed();
+        ui->editNomCours
+            ->text()
+            .trimmed();
+
+
+    QString description =
+        ui->editDescriptionCours
+            ->text()
+            .trimmed();
+
+
+    QString niveau =
+        ui->comboNiveau
+            ->currentText();
+
 
     int duree =
-        ui->editDuree->text().toInt();
+        ui->editDuree
+            ->text()
+            .toInt();
+
+
+    QString textePrix =
+        ui->editPrix->text();
+
+    textePrix.replace(",", ".");
 
     double prix =
-        ui->editPrix->text().toDouble();
+        textePrix.isEmpty()
+            ? 0
+            : textePrix.toDouble();
+
+
+    QDate dateDebut =
+        ui->dateEditDebut
+            ->date();
+
 
     int idFormateur =
         ui->comboFormateur
@@ -492,11 +742,40 @@ void MainWindow::on_btnAjouterCours_clicked()
             .toInt();
 
 
+    // Contrôles métier
+    if (!ui->editDuree->text().isEmpty() &&
+        duree <= 0)
+    {
+        QMessageBox::warning(
+            this,
+            "Durée invalide",
+            "La durée doit être supérieure à zéro."
+            );
+
+        return;
+    }
+
+
+    if (prix < 0)
+    {
+        QMessageBox::warning(
+            this,
+            "Prix invalide",
+            "Le prix ne peut pas être négatif."
+            );
+
+        return;
+    }
+
+
     Cours cours(
         idCours,
         nomCours,
+        description,
+        niveau,
         duree,
         prix,
+        dateDebut,
         idFormateur
         );
 
@@ -524,9 +803,9 @@ void MainWindow::on_btnAjouterCours_clicked()
 }
 
 
-// ==========================================
-// COURS : MODIFIER
-// ==========================================
+// =====================================================
+// MODIFIER COURS
+// =====================================================
 
 void MainWindow::on_btnModifierCours_clicked()
 {
@@ -542,12 +821,24 @@ void MainWindow::on_btnModifierCours_clicked()
     }
 
 
-    if (ui->comboFormateur->currentIndex() == -1)
+    if (ui->editNomCours->text().trimmed().isEmpty())
     {
         QMessageBox::warning(
             this,
-            "Formateur",
-            "Veuillez choisir un formateur."
+            "Attention",
+            "Le nom du cours est obligatoire."
+            );
+
+        return;
+    }
+
+
+    if (ui->comboFormateur->currentIndex() < 0)
+    {
+        QMessageBox::warning(
+            this,
+            "Attention",
+            "Veuillez sélectionner un formateur."
             );
 
         return;
@@ -557,14 +848,45 @@ void MainWindow::on_btnModifierCours_clicked()
     int idCours =
         ui->editIdCours->text().toInt();
 
+
     QString nomCours =
-        ui->editNomCours->text().trimmed();
+        ui->editNomCours
+            ->text()
+            .trimmed();
+
+
+    QString description =
+        ui->editDescriptionCours
+            ->text()
+            .trimmed();
+
+
+    QString niveau =
+        ui->comboNiveau
+            ->currentText();
+
 
     int duree =
-        ui->editDuree->text().toInt();
+        ui->editDuree
+            ->text()
+            .toInt();
+
+
+    QString textePrix =
+        ui->editPrix->text();
+
+    textePrix.replace(",", ".");
 
     double prix =
-        ui->editPrix->text().toDouble();
+        textePrix.isEmpty()
+            ? 0
+            : textePrix.toDouble();
+
+
+    QDate dateDebut =
+        ui->dateEditDebut
+            ->date();
+
 
     int idFormateur =
         ui->comboFormateur
@@ -572,25 +894,14 @@ void MainWindow::on_btnModifierCours_clicked()
             .toInt();
 
 
-    if (nomCours.isEmpty() ||
-        duree <= 0 ||
-        prix < 0)
-    {
-        QMessageBox::warning(
-            this,
-            "Attention",
-            "Les données du cours ne sont pas valides."
-            );
-
-        return;
-    }
-
-
     Cours cours(
         idCours,
         nomCours,
+        description,
+        niveau,
         duree,
         prix,
+        dateDebut,
         idFormateur
         );
 
@@ -618,9 +929,9 @@ void MainWindow::on_btnModifierCours_clicked()
 }
 
 
-// ==========================================
-// COURS : SUPPRIMER
-// ==========================================
+// =====================================================
+// SUPPRIMER COURS
+// =====================================================
 
 void MainWindow::on_btnSupprimerCours_clicked()
 {
@@ -629,7 +940,7 @@ void MainWindow::on_btnSupprimerCours_clicked()
         QMessageBox::warning(
             this,
             "Attention",
-            "Veuillez saisir l'ID du cours à supprimer."
+            "Veuillez saisir l'ID du cours."
             );
 
         return;
@@ -640,14 +951,13 @@ void MainWindow::on_btnSupprimerCours_clicked()
         ui->editIdCours->text().toInt();
 
 
-    QMessageBox::StandardButton confirmation;
-
-    confirmation = QMessageBox::question(
-        this,
-        "Confirmation",
-        "Voulez-vous vraiment supprimer ce cours ?",
-        QMessageBox::Yes | QMessageBox::No
-        );
+    QMessageBox::StandardButton confirmation =
+        QMessageBox::question(
+            this,
+            "Confirmation",
+            "Voulez-vous vraiment supprimer ce cours ?",
+            QMessageBox::Yes | QMessageBox::No
+            );
 
 
     if (confirmation != QMessageBox::Yes)
@@ -682,9 +992,9 @@ void MainWindow::on_btnSupprimerCours_clicked()
 }
 
 
-// ==========================================
-// COURS : AFFICHER
-// ==========================================
+// =====================================================
+// BOUTON AFFICHER COURS
+// =====================================================
 
 void MainWindow::on_btnAfficherCours_clicked()
 {
@@ -692,16 +1002,46 @@ void MainWindow::on_btnAfficherCours_clicked()
 }
 
 
+// =====================================================
+// AFFICHER TABLE COURS
+// =====================================================
+
 void MainWindow::afficherCours()
 {
     Cours cours;
 
-    ui->tableCours->setModel(
-        cours.afficher()
+
+    QSqlQueryModel *model =
+        cours.afficher();
+
+
+    if (model == nullptr)
+    {
+        QMessageBox::critical(
+            this,
+            "Erreur",
+            "Impossible de charger les cours."
+            );
+
+        return;
+    }
+
+
+    ui->tableCours->setModel(model);
+
+
+    ui->tableCours->setSelectionBehavior(
+        QAbstractItemView::SelectRows
         );
+
+    ui->tableCours->setSelectionMode(
+        QAbstractItemView::SingleSelection
+        );
+
 
     ui->tableCours
         ->resizeColumnsToContents();
+
 
     ui->tableCours
         ->horizontalHeader()
@@ -709,21 +1049,39 @@ void MainWindow::afficherCours()
 }
 
 
-// ==========================================
-// COURS : VIDER LES CHAMPS
-// ==========================================
+// =====================================================
+// VIDER CHAMPS COURS
+// =====================================================
 
 void MainWindow::viderChampsCours()
 {
     ui->editIdCours->clear();
+
     ui->editNomCours->clear();
+
+    ui->editDescriptionCours->clear();
+
     ui->editDuree->clear();
+
     ui->editPrix->clear();
+
+
+    if (ui->comboNiveau->count() > 0)
+    {
+        ui->comboNiveau->setCurrentIndex(0);
+    }
+
+
+    ui->dateEditDebut->setDate(
+        QDate::currentDate()
+        );
+
 
     if (ui->comboFormateur->count() > 0)
     {
         ui->comboFormateur->setCurrentIndex(0);
     }
+
 
     ui->editIdCours->setFocus();
 }

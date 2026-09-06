@@ -282,34 +282,26 @@ CMakeFiles/centre.dir/cours.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qstringbuilder.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qstringconverter.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qstringconverter_base.h \
- C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qhash.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qalgorithms.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/q20bit.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QDate \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qcalendar.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qlocale.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qvariant.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qmetatype.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qdatastream.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qobjectdefs.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevicebase.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qscopedpointer.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qfloat16.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qhashfunctions.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_numeric.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_numeric_defs.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qiterator.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qlist.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearraylist.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qstringlist.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qstringmatcher.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qobject.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qobjectdefs.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qscopedpointer.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qmetatype.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdatastream.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevicebase.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfloat16.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qmath.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qalgorithms.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/q20bit.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qtformat_impl.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qiterable.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qtaggedpointer.h \
@@ -323,13 +315,6 @@ CMakeFiles/centre.dir/cours.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qobject_impl.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qbindingstorage.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qvariant.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qdebug.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qtextstream.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qcontiguouscache.h \
@@ -337,18 +322,37 @@ CMakeFiles/centre.dir/cours.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qsharedpointer.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qshareddata.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_set \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qiterator.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearraylist.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qstringlist.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qstringmatcher.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qmap.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qshareddata_impl.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qset.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qalloc.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/q20utility.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qobject_impl.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qbindingstorage.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qmetaobject.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQuery \

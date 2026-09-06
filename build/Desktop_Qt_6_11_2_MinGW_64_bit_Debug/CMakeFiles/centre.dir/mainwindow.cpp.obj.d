@@ -416,6 +416,11 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qframe.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QDateEdit \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdatetimeedit.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qtimezone.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qdatetime.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qcalendar.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHBoxLayout \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayout.h \
@@ -455,6 +460,7 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QWidget \
  C:\Users\Mega-Pc\Desktop\projetc++\centre\formateur.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/QString \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QDate \
  C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
@@ -469,4 +475,6 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/QIntValidator \
  C:/Qt/6.11.2/mingw_64/include/QtGui/QDoubleValidator \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QRegularExpression \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QRegularExpressionValidator \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHeaderView

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -56,6 +57,12 @@ public:
     QPushButton *btnAfficherCours;
     QTableView *tableCours;
     QLabel *label_12;
+    QLabel *label_15;
+    QLabel *label_16;
+    QDateEdit *dateEditDebut;
+    QLineEdit *editDescriptionCours;
+    QLabel *label_17;
+    QComboBox *comboNiveau;
     QWidget *pageFormateurs;
     QLabel *label;
     QLabel *label_2;
@@ -74,6 +81,10 @@ public:
     QPushButton *btnSupprimerFormateur;
     QPushButton *btnAfficherFormateurs;
     QTableView *tableFormateurs;
+    QLabel *label_13;
+    QLineEdit *editSalaire;
+    QLabel *label_14;
+    QDateEdit *dateEditEmbauche;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -123,13 +134,13 @@ public:
         label_8->setGeometry(QRect(50, 100, 63, 20));
         label_9 = new QLabel(pageCours);
         label_9->setObjectName("label_9");
-        label_9->setGeometry(QRect(50, 150, 63, 20));
+        label_9->setGeometry(QRect(380, 120, 63, 20));
         label_10 = new QLabel(pageCours);
         label_10->setObjectName("label_10");
-        label_10->setGeometry(QRect(50, 210, 63, 20));
+        label_10->setGeometry(QRect(380, 150, 63, 20));
         label_11 = new QLabel(pageCours);
         label_11->setObjectName("label_11");
-        label_11->setGeometry(QRect(50, 260, 111, 20));
+        label_11->setGeometry(QRect(370, 200, 111, 20));
         editIdCours = new QLineEdit(pageCours);
         editIdCours->setObjectName("editIdCours");
         editIdCours->setGeometry(QRect(150, 40, 113, 26));
@@ -138,31 +149,49 @@ public:
         editNomCours->setGeometry(QRect(150, 100, 113, 26));
         comboFormateur = new QComboBox(pageCours);
         comboFormateur->setObjectName("comboFormateur");
-        comboFormateur->setGeometry(QRect(190, 260, 201, 26));
+        comboFormateur->setGeometry(QRect(510, 190, 201, 26));
         editDuree = new QLineEdit(pageCours);
         editDuree->setObjectName("editDuree");
-        editDuree->setGeometry(QRect(170, 150, 113, 26));
+        editDuree->setGeometry(QRect(510, 100, 113, 26));
         editPrix = new QLineEdit(pageCours);
         editPrix->setObjectName("editPrix");
-        editPrix->setGeometry(QRect(180, 210, 113, 26));
+        editPrix->setGeometry(QRect(520, 160, 113, 26));
         btnAjouterCours = new QPushButton(pageCours);
         btnAjouterCours->setObjectName("btnAjouterCours");
-        btnAjouterCours->setGeometry(QRect(540, 50, 93, 29));
+        btnAjouterCours->setGeometry(QRect(890, 40, 93, 29));
         btnModifierCours = new QPushButton(pageCours);
         btnModifierCours->setObjectName("btnModifierCours");
-        btnModifierCours->setGeometry(QRect(550, 110, 93, 29));
+        btnModifierCours->setGeometry(QRect(900, 80, 93, 29));
         btnSupprimerCours = new QPushButton(pageCours);
         btnSupprimerCours->setObjectName("btnSupprimerCours");
-        btnSupprimerCours->setGeometry(QRect(560, 170, 93, 29));
+        btnSupprimerCours->setGeometry(QRect(900, 140, 93, 29));
         btnAfficherCours = new QPushButton(pageCours);
         btnAfficherCours->setObjectName("btnAfficherCours");
-        btnAfficherCours->setGeometry(QRect(570, 220, 161, 29));
+        btnAfficherCours->setGeometry(QRect(840, 190, 161, 29));
         tableCours = new QTableView(pageCours);
         tableCours->setObjectName("tableCours");
         tableCours->setGeometry(QRect(20, 290, 1001, 261));
         label_12 = new QLabel(pageCours);
         label_12->setObjectName("label_12");
         label_12->setGeometry(QRect(370, 0, 301, 20));
+        label_15 = new QLabel(pageCours);
+        label_15->setObjectName("label_15");
+        label_15->setGeometry(QRect(40, 160, 63, 20));
+        label_16 = new QLabel(pageCours);
+        label_16->setObjectName("label_16");
+        label_16->setGeometry(QRect(40, 210, 63, 20));
+        dateEditDebut = new QDateEdit(pageCours);
+        dateEditDebut->setObjectName("dateEditDebut");
+        dateEditDebut->setGeometry(QRect(170, 210, 110, 26));
+        editDescriptionCours = new QLineEdit(pageCours);
+        editDescriptionCours->setObjectName("editDescriptionCours");
+        editDescriptionCours->setGeometry(QRect(170, 160, 113, 26));
+        label_17 = new QLabel(pageCours);
+        label_17->setObjectName("label_17");
+        label_17->setGeometry(QRect(390, 50, 63, 20));
+        comboNiveau = new QComboBox(pageCours);
+        comboNiveau->setObjectName("comboNiveau");
+        comboNiveau->setGeometry(QRect(520, 40, 151, 26));
         stackedWidget->addWidget(pageCours);
         pageFormateurs = new QWidget();
         pageFormateurs->setObjectName("pageFormateurs");
@@ -217,6 +246,18 @@ public:
         tableFormateurs = new QTableView(pageFormateurs);
         tableFormateurs->setObjectName("tableFormateurs");
         tableFormateurs->setGeometry(QRect(10, 200, 1001, 341));
+        label_13 = new QLabel(pageFormateurs);
+        label_13->setObjectName("label_13");
+        label_13->setGeometry(QRect(20, 160, 63, 20));
+        editSalaire = new QLineEdit(pageFormateurs);
+        editSalaire->setObjectName("editSalaire");
+        editSalaire->setGeometry(QRect(190, 160, 113, 26));
+        label_14 = new QLabel(pageFormateurs);
+        label_14->setObjectName("label_14");
+        label_14->setGeometry(QRect(360, 170, 111, 20));
+        dateEditEmbauche = new QDateEdit(pageFormateurs);
+        dateEditEmbauche->setObjectName("dateEditEmbauche");
+        dateEditEmbauche->setGeometry(QRect(490, 170, 110, 26));
         stackedWidget->addWidget(pageFormateurs);
 
         verticalLayout_2->addWidget(navigationWidget);
@@ -224,7 +265,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1086, 22));
+        menubar->setGeometry(QRect(0, 0, 1086, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -232,7 +273,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -253,6 +294,9 @@ public:
         btnSupprimerCours->setText(QCoreApplication::translate("MainWindow", "Supprimer ", nullptr));
         btnAfficherCours->setText(QCoreApplication::translate("MainWindow", "Afficher les cours", nullptr));
         label_12->setText(QCoreApplication::translate("MainWindow", " GESTION DES FORMATEURS", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "Description     ", nullptr));
+        label_16->setText(QCoreApplication::translate("MainWindow", "Date d\303\251but ", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "Niveau       ", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "ID Formateur", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Nom          ", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Pr\303\251nom       ", nullptr));
@@ -263,6 +307,8 @@ public:
         btnModifierFormateur->setText(QCoreApplication::translate("MainWindow", "Modifier ", nullptr));
         btnSupprimerFormateur->setText(QCoreApplication::translate("MainWindow", "Supprimer ", nullptr));
         btnAfficherFormateurs->setText(QCoreApplication::translate("MainWindow", "Afficher", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Salaire", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindow", "Date embauche", nullptr));
     } // retranslateUi
 
 };

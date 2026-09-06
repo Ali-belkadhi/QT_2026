@@ -2,6 +2,7 @@
 #define FORMATEUR_H
 
 #include <QString>
+#include <QDate>
 #include <QSqlQueryModel>
 
 class Formateur
@@ -13,9 +14,10 @@ private:
     QString email;
     QString telephone;
     QString specialite;
+    double salaire;
+    QDate dateEmbauche;
 
 public:
-    // Constructeurs
     Formateur();
 
     Formateur(
@@ -24,43 +26,38 @@ public:
         const QString &prenom,
         const QString &email,
         const QString &telephone,
-        const QString &specialite
+        const QString &specialite,
+        double salaire,
+        const QDate &dateEmbauche
         );
 
-    // =========================
     // CRUD
-    // =========================
-
     bool ajouter();
     bool modifier();
     bool supprimer(int id);
 
     QSqlQueryModel *afficher();
-
-    // Pour remplir le QComboBox des cours
     QSqlQueryModel *listePourCombo();
 
-    // =========================
-    // GETTERS
-    // =========================
-
+    // Getters
     int getIdFormateur() const;
     QString getNom() const;
     QString getPrenom() const;
     QString getEmail() const;
     QString getTelephone() const;
     QString getSpecialite() const;
+    double getSalaire() const;
+    QDate getDateEmbauche() const;
 
-    // =========================
-    // SETTERS
-    // =========================
-
+    // Setters
     void setIdFormateur(int id);
     void setNom(const QString &nom);
     void setPrenom(const QString &prenom);
     void setEmail(const QString &email);
     void setTelephone(const QString &telephone);
     void setSpecialite(const QString &specialite);
+    void setSalaire(double salaire);
+    void setDateEmbauche(const QDate &date);
 };
 
 #endif // FORMATEUR_H
