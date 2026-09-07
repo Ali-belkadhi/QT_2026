@@ -1,8 +1,8 @@
-CMakeFiles/centre.dir/mainwindow.cpp.obj: \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\mainwindow.cpp \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\mainwindow.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmainwindow.h \
+CMakeFiles/centre.dir/statformateur.cpp.obj: \
+ C:\Users\Mega-Pc\Desktop\projetc++\centre\statformateur.cpp \
+ C:\Users\Mega-Pc\Desktop\projetc++\centre\statformateur.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qglobal.h \
@@ -385,172 +385,109 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qbitmap.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qframe.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QGridLayout \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QTabWidget \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QModelIndex \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QString \
- C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQuery \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquery.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qmetaobject.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractbutton.h \
- C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/include/ui_mainwindow.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlError \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlerror.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QDebug \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QChart \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qchart.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QAbstractSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qabstractseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QChartGlobal \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qchartglobal.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qtcharts-config.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qtchartsexports.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QAbstractAxis \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qabstractaxis.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QPen \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QFont \
  C:/Qt/6.11.2/mingw_64/include/QtCore/QVariant \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QApplication \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qapplication.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QLegend \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qlegend.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QGraphicsWidget \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgraphicswidget.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgraphicslayoutitem.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qevent.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qcoreevent.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qbasictimer.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qeventpoint.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qvector2d.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qvectornd.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpointingdevice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qinputdevice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qscreen.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QList \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QRect \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QSize \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QSizeF \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QTransform \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qnativeinterface.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qscreen_platform.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qguiapplication.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qcoreapplication.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QComboBox \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qcombobox.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qstyleoption.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qvalidator.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qregularexpression.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qslider.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractslider.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qstyle.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabbar.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qrubberband.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QDateEdit \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdatetimeedit.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qtimezone.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QGridLayout \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHeaderView \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qheaderview.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qitemselectionmodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QLabel \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlabel.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpicture.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qurl.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpainterpath.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QBrush \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QMargins \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QChartView \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qchartview.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QChart \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QGraphicsView \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMenuBar \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmenubar.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmenu.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QSpacerItem \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QStackedWidget \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qstackedwidget.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QTableView \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtableview.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QWidget \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\formateur.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QDate \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\cours.h \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\statformateur.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QDialog \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialog.h \
- C:\Users\Mega-Pc\Desktop\projetc++\centre\statcours.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMessageBox \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QIntValidator \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QRegularExpression \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QRegularExpressionValidator \
- C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQuery \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquery.h \
- C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlError \
- C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlerror.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QRandomGenerator \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qrandom.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/random \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/opt_random.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/pmmintrin.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/emmintrin.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/xmmintrin.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mmintrin.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mwaitintrin.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/random.tcc \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHeaderView \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QAbstractItemView \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QAbstractItemModel \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QSortFilterProxyModel \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qsortfilterproxymodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractproxymodel.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QDateTime \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QSizePolicy \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QPdfWriter \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpdfwriter.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagedpaintdevice.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagelayout.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagesize.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpageranges.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qfiledialog.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdir.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdirlisting.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfiledevice.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfile.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfileinfo.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QPageSize \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QPageLayout \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QTextDocument \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QDir \
- C:/Qt/6.11.2/mingw_64/include/QtCore/QMarginsF
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QPieSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qpieseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QPieSlice \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qpieslice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QPieSlice \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QAbstractBarSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qabstractbarseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QStringList \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarSet \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarset.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarCategoryAxis \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QValueAxis \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qvalueaxis.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QColor \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QBrush \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QFont

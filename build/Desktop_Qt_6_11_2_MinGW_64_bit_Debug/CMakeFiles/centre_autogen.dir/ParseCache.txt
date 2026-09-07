@@ -3,6 +3,8 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/cours.h
 C:/Users/Mega-Pc/Desktop/projetc++/centre/database.h
 C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
  mmc:Q_OBJECT
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/QModelIndex
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q20bit.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q20functional.h
@@ -12,6 +14,7 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q20utility.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q23type_traits.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/q23utility.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qalgorithms.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qalloc.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qanystringview.h
@@ -66,6 +69,7 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qmargins.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qmath.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qmetaobject.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qmetatype.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qminmax.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtCore/qnamespace.h
@@ -157,8 +161,17 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtGui/qtransform.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMainWindow
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmainwindow.h
+ mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtwidgets-config.h
@@ -381,9 +394,13 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
  mdp:C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/moc_predefs.h
  mdp:C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h
 C:/Users/Mega-Pc/Desktop/projetc++/centre/formateur.h
+C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.h
 C:/Users/Mega-Pc/Desktop/projetc++/centre/cours.cpp
+C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.h
 C:/Users/Mega-Pc/Desktop/projetc++/centre/database.cpp
-C:/Users/Mega-Pc/Desktop/projetc++/centre/main.cpp
 C:/Users/Mega-Pc/Desktop/projetc++/centre/formateur.cpp
+C:/Users/Mega-Pc/Desktop/projetc++/centre/main.cpp
 C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.cpp
  uic:ui_mainwindow.h
+C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.cpp
+C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.cpp

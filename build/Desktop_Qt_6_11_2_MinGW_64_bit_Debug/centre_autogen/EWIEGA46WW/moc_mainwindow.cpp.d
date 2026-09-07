@@ -1,5 +1,7 @@
 C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h \
   C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/moc_predefs.h \
+  C:/Qt/6.11.2/mingw_64/include/QtCore/QModelIndex \
+  C:/Qt/6.11.2/mingw_64/include/QtCore/QString \
   C:/Qt/6.11.2/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/q20functional.h \
@@ -9,6 +11,7 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_D
   C:/Qt/6.11.2/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/q23type_traits.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qalloc.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qanystringview.h \
@@ -63,6 +66,7 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_D
   C:/Qt/6.11.2/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/Qt/6.11.2/mingw_64/include/QtCore/qmetaobject.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qminmax.h \
   C:/Qt/6.11.2/mingw_64/include/QtCore/qnamespace.h \
@@ -154,8 +158,17 @@ C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_D
   C:/Qt/6.11.2/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.11.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtwidgets-config.h \

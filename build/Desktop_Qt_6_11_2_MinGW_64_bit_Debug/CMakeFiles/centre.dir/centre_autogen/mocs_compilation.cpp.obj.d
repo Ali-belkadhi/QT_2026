@@ -387,6 +387,19 @@ CMakeFiles/centre.dir/centre_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qbitmap.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabwidget.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QModelIndex \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QString \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsql-config.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlexports.h \
+ C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qmetaobject.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qtmochelpers.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/q20algorithm.h

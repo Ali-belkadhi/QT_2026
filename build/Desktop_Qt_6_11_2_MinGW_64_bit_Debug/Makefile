@@ -343,6 +343,54 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
+statcours.obj: statcours.cpp.obj
+.PHONY : statcours.obj
+
+# target to build an object file
+statcours.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statcours.cpp.obj
+.PHONY : statcours.cpp.obj
+
+statcours.i: statcours.cpp.i
+.PHONY : statcours.i
+
+# target to preprocess a source file
+statcours.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statcours.cpp.i
+.PHONY : statcours.cpp.i
+
+statcours.s: statcours.cpp.s
+.PHONY : statcours.s
+
+# target to generate assembly for a file
+statcours.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statcours.cpp.s
+.PHONY : statcours.cpp.s
+
+statformateur.obj: statformateur.cpp.obj
+.PHONY : statformateur.obj
+
+# target to build an object file
+statformateur.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statformateur.cpp.obj
+.PHONY : statformateur.cpp.obj
+
+statformateur.i: statformateur.cpp.i
+.PHONY : statformateur.i
+
+# target to preprocess a source file
+statformateur.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statformateur.cpp.i
+.PHONY : statformateur.cpp.i
+
+statformateur.s: statformateur.cpp.s
+.PHONY : statformateur.s
+
+# target to generate assembly for a file
+statformateur.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/statformateur.cpp.s
+.PHONY : statformateur.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -376,6 +424,12 @@ help:
 	@echo ... mainwindow.obj
 	@echo ... mainwindow.i
 	@echo ... mainwindow.s
+	@echo ... statcours.obj
+	@echo ... statcours.i
+	@echo ... statcours.s
+	@echo ... statformateur.obj
+	@echo ... statformateur.i
+	@echo ... statformateur.s
 .PHONY : help
 
 

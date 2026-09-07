@@ -3,13 +3,18 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+
 #include <utility>
 
 
+// =====================================================
+// CONSTRUCTEURS
+// =====================================================
+
 Formateur::Formateur()
+    : idFormateur(0),
+    salaire(0)
 {
-    idFormateur = 0;
-    salaire = 0;
 }
 
 
@@ -23,21 +28,21 @@ Formateur::Formateur(
     double salaire,
     const QDate &dateEmbauche
     )
+    : idFormateur(idFormateur),
+    nom(nom),
+    prenom(prenom),
+    email(email),
+    telephone(telephone),
+    specialite(specialite),
+    salaire(salaire),
+    dateEmbauche(dateEmbauche)
 {
-    this->idFormateur = idFormateur;
-    this->nom = nom;
-    this->prenom = prenom;
-    this->email = email;
-    this->telephone = telephone;
-    this->specialite = specialite;
-    this->salaire = salaire;
-    this->dateEmbauche = dateEmbauche;
 }
 
 
-// ======================================================
+// =====================================================
 // AJOUTER
-// ======================================================
+// =====================================================
 
 bool Formateur::ajouter()
 {
@@ -47,24 +52,22 @@ bool Formateur::ajouter()
         "INSERT INTO FORMATEUR "
         "(ID_FORMATEUR, NOM, PRENOM, EMAIL, TELEPHONE, "
         "SPECIALITE, SALAIRE, DATE_EMBAUCHE) "
-        "VALUES "
-        "(:id, :nom, :prenom, :email, :telephone, "
-        ":specialite, :salaire, "
-        "TO_DATE(:dateEmbauche, 'YYYY-MM-DD'))"
+        "VALUES (?, ?, ?, ?, ?, ?, ?, "
+        "TO_DATE(?, 'YYYY-MM-DD'))"
         );
 
-    query.bindValue(":id", idFormateur);
-    query.bindValue(":nom", nom);
-    query.bindValue(":prenom", prenom);
-    query.bindValue(":email", email);
-    query.bindValue(":telephone", telephone);
-    query.bindValue(":specialite", specialite);
-    query.bindValue(":salaire", salaire);
+    query.addBindValue(idFormateur);
+    query.addBindValue(nom);
+    query.addBindValue(prenom);
+    query.addBindValue(email);
+    query.addBindValue(telephone);
+    query.addBindValue(specialite);
+    query.addBindValue(salaire);
 
-    query.bindValue(
-        ":dateEmbauche",
+    query.addBindValue(
         dateEmbauche.toString("yyyy-MM-dd")
         );
+
 
     if (!query.exec())
     {
@@ -75,13 +78,14 @@ bool Formateur::ajouter()
         return false;
     }
 
+
     return true;
 }
 
 
-// ======================================================
+// =====================================================
 // MODIFIER
-// ======================================================
+// =====================================================
 
 bool Formateur::modifier()
 {
@@ -89,29 +93,30 @@ bool Formateur::modifier()
 
     query.prepare(
         "UPDATE FORMATEUR SET "
-        "NOM = :nom, "
-        "PRENOM = :prenom, "
-        "EMAIL = :email, "
-        "TELEPHONE = :telephone, "
-        "SPECIALITE = :specialite, "
-        "SALAIRE = :salaire, "
-        "DATE_EMBAUCHE = TO_DATE(:dateEmbauche, 'YYYY-MM-DD') "
-        "WHERE ID_FORMATEUR = :id"
+        "NOM = ?, "
+        "PRENOM = ?, "
+        "EMAIL = ?, "
+        "TELEPHONE = ?, "
+        "SPECIALITE = ?, "
+        "SALAIRE = ?, "
+        "DATE_EMBAUCHE = TO_DATE(?, 'YYYY-MM-DD') "
+        "WHERE ID_FORMATEUR = ?"
         );
 
-    query.bindValue(":nom", nom);
-    query.bindValue(":prenom", prenom);
-    query.bindValue(":email", email);
-    query.bindValue(":telephone", telephone);
-    query.bindValue(":specialite", specialite);
-    query.bindValue(":salaire", salaire);
 
-    query.bindValue(
-        ":dateEmbauche",
+    query.addBindValue(nom);
+    query.addBindValue(prenom);
+    query.addBindValue(email);
+    query.addBindValue(telephone);
+    query.addBindValue(specialite);
+    query.addBindValue(salaire);
+
+    query.addBindValue(
         dateEmbauche.toString("yyyy-MM-dd")
         );
 
-    query.bindValue(":id", idFormateur);
+    query.addBindValue(idFormateur);
+
 
     if (!query.exec())
     {
@@ -122,13 +127,14 @@ bool Formateur::modifier()
         return false;
     }
 
+
     return query.numRowsAffected() > 0;
 }
 
 
-// ======================================================
+// =====================================================
 // SUPPRIMER
-// ======================================================
+// =====================================================
 
 bool Formateur::supprimer(int id)
 {
@@ -136,10 +142,11 @@ bool Formateur::supprimer(int id)
 
     query.prepare(
         "DELETE FROM FORMATEUR "
-        "WHERE ID_FORMATEUR = :id"
+        "WHERE ID_FORMATEUR = ?"
         );
 
-    query.bindValue(":id", id);
+    query.addBindValue(id);
+
 
     if (!query.exec())
     {
@@ -150,17 +157,20 @@ bool Formateur::supprimer(int id)
         return false;
     }
 
+
     return query.numRowsAffected() > 0;
 }
 
 
-// ======================================================
+// =====================================================
 // AFFICHER
-// ======================================================
+// =====================================================
 
 QSqlQueryModel *Formateur::afficher()
 {
-    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQueryModel *model =
+        new QSqlQueryModel();
+
 
     QSqlQuery query;
 
@@ -174,10 +184,10 @@ QSqlQueryModel *Formateur::afficher()
         "SPECIALITE, "
         "SALAIRE, "
         "TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY') "
-        "AS DATE_EMBAUCHE "
         "FROM FORMATEUR "
         "ORDER BY ID_FORMATEUR"
         );
+
 
     if (!query.exec())
     {
@@ -186,62 +196,214 @@ QSqlQueryModel *Formateur::afficher()
         << query.lastError().text();
 
         delete model;
+
         return nullptr;
     }
 
-    model->setQuery(std::move(query));
+
+    model->setQuery(
+        std::move(query)
+        );
+
 
     model->setHeaderData(
-        0, Qt::Horizontal, "ID"
+        0,
+        Qt::Horizontal,
+        "ID"
         );
 
     model->setHeaderData(
-        1, Qt::Horizontal, "Nom"
+        1,
+        Qt::Horizontal,
+        "Nom"
         );
 
     model->setHeaderData(
-        2, Qt::Horizontal, "Prénom"
+        2,
+        Qt::Horizontal,
+        "Prénom"
         );
 
     model->setHeaderData(
-        3, Qt::Horizontal, "Email"
+        3,
+        Qt::Horizontal,
+        "Email"
         );
 
     model->setHeaderData(
-        4, Qt::Horizontal, "Téléphone"
+        4,
+        Qt::Horizontal,
+        "Téléphone"
         );
 
     model->setHeaderData(
-        5, Qt::Horizontal, "Spécialité"
+        5,
+        Qt::Horizontal,
+        "Spécialité"
         );
 
     model->setHeaderData(
-        6, Qt::Horizontal, "Salaire"
+        6,
+        Qt::Horizontal,
+        "Salaire"
         );
 
     model->setHeaderData(
-        7, Qt::Horizontal, "Date d'embauche"
+        7,
+        Qt::Horizontal,
+        "Date embauche"
         );
+
 
     return model;
 }
 
 
-// ======================================================
-// LISTE POUR COMBOBOX
-// ======================================================
+// =====================================================
+// RECHERCHE MULTICRITERE
+// =====================================================
+
+QSqlQueryModel *Formateur::rechercher(
+    const QString &texte
+    )
+{
+    QSqlQueryModel *model =
+        new QSqlQueryModel();
+
+
+    QSqlQuery query;
+
+
+    query.prepare(
+        "SELECT "
+        "ID_FORMATEUR, "
+        "NOM, "
+        "PRENOM, "
+        "EMAIL, "
+        "TELEPHONE, "
+        "SPECIALITE, "
+        "SALAIRE, "
+        "TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY') "
+        "FROM FORMATEUR "
+        "WHERE "
+        "LOWER(TO_CHAR(ID_FORMATEUR)) LIKE ? "
+        "OR LOWER(NOM) LIKE ? "
+        "OR LOWER(PRENOM) LIKE ? "
+        "OR LOWER(EMAIL) LIKE ? "
+        "OR LOWER(TELEPHONE) LIKE ? "
+        "OR LOWER(SPECIALITE) LIKE ? "
+        "OR LOWER(TO_CHAR(SALAIRE)) LIKE ? "
+        "OR LOWER(TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY')) LIKE ? "
+        "ORDER BY ID_FORMATEUR"
+        );
+
+
+    QString valeur =
+        "%"
+        + texte.trimmed().toLower()
+        + "%";
+
+
+    // 8 critères
+    for (int i = 0; i < 8; i++)
+    {
+        query.addBindValue(
+            valeur
+            );
+    }
+
+
+    if (!query.exec())
+    {
+        qDebug()
+        << "Erreur recherche formateur :"
+        << query.lastError().text();
+
+        delete model;
+
+        return nullptr;
+    }
+
+
+    model->setQuery(
+        std::move(query)
+        );
+
+
+    model->setHeaderData(
+        0,
+        Qt::Horizontal,
+        "ID"
+        );
+
+    model->setHeaderData(
+        1,
+        Qt::Horizontal,
+        "Nom"
+        );
+
+    model->setHeaderData(
+        2,
+        Qt::Horizontal,
+        "Prénom"
+        );
+
+    model->setHeaderData(
+        3,
+        Qt::Horizontal,
+        "Email"
+        );
+
+    model->setHeaderData(
+        4,
+        Qt::Horizontal,
+        "Téléphone"
+        );
+
+    model->setHeaderData(
+        5,
+        Qt::Horizontal,
+        "Spécialité"
+        );
+
+    model->setHeaderData(
+        6,
+        Qt::Horizontal,
+        "Salaire"
+        );
+
+    model->setHeaderData(
+        7,
+        Qt::Horizontal,
+        "Date embauche"
+        );
+
+
+    return model;
+}
+
+
+// =====================================================
+// LISTE POUR COMBO COURS
+// =====================================================
 
 QSqlQueryModel *Formateur::listePourCombo()
 {
-    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQueryModel *model =
+        new QSqlQueryModel();
+
 
     QSqlQuery query;
 
     query.prepare(
-        "SELECT ID_FORMATEUR, NOM, PRENOM "
+        "SELECT "
+        "ID_FORMATEUR, "
+        "NOM, "
+        "PRENOM "
         "FROM FORMATEUR "
         "ORDER BY NOM, PRENOM"
         );
+
 
     if (!query.exec())
     {
@@ -250,18 +412,23 @@ QSqlQueryModel *Formateur::listePourCombo()
         << query.lastError().text();
 
         delete model;
+
         return nullptr;
     }
 
-    model->setQuery(std::move(query));
+
+    model->setQuery(
+        std::move(query)
+        );
+
 
     return model;
 }
 
 
-// ======================================================
+// =====================================================
 // GETTERS
-// ======================================================
+// =====================================================
 
 int Formateur::getIdFormateur() const
 {
@@ -304,46 +471,60 @@ QDate Formateur::getDateEmbauche() const
 }
 
 
-// ======================================================
+// =====================================================
 // SETTERS
-// ======================================================
+// =====================================================
 
 void Formateur::setIdFormateur(int id)
 {
     idFormateur = id;
 }
 
-void Formateur::setNom(const QString &nom)
+void Formateur::setNom(
+    const QString &nom
+    )
 {
     this->nom = nom;
 }
 
-void Formateur::setPrenom(const QString &prenom)
+void Formateur::setPrenom(
+    const QString &prenom
+    )
 {
     this->prenom = prenom;
 }
 
-void Formateur::setEmail(const QString &email)
+void Formateur::setEmail(
+    const QString &email
+    )
 {
     this->email = email;
 }
 
-void Formateur::setTelephone(const QString &telephone)
+void Formateur::setTelephone(
+    const QString &telephone
+    )
 {
     this->telephone = telephone;
 }
 
-void Formateur::setSpecialite(const QString &specialite)
+void Formateur::setSpecialite(
+    const QString &specialite
+    )
 {
     this->specialite = specialite;
 }
 
-void Formateur::setSalaire(double salaire)
+void Formateur::setSalaire(
+    double salaire
+    )
 {
     this->salaire = salaire;
 }
 
-void Formateur::setDateEmbauche(const QDate &date)
+void Formateur::setDateEmbauche(
+    const QDate &date
+    )
 {
     dateEmbauche = date;
 }

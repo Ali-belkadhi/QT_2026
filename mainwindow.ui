@@ -11,579 +11,600 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Centre de Formation</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>1061</width>
-      <height>681</height>
-     </rect>
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>6</number>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QWidget" name="navigationWidget" native="true">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <widget class="QWidget" name="horizontalLayoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>1021</width>
-          <height>80</height>
-         </rect>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>8</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>8</number>
+    </property>
+
+    <!-- ===================== NAV BUTTONS ===================== -->
+    <item>
+     <layout class="QHBoxLayout" name="navLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnFormateurs">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="btnFormateurs">
-           <property name="text">
-            <string>👨‍🏫 FORMATEURS</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="btnCours">
-           <property name="text">
-            <string>📚 COURS</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>48</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>👨‍🏫 FORMATEURS</string>
+        </property>
        </widget>
-       <widget class="QStackedWidget" name="stackedWidget">
-        <property name="enabled">
-         <bool>true</bool>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCours">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>110</y>
-          <width>1011</width>
-          <height>551</height>
-         </rect>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>48</height>
+         </size>
         </property>
-        <property name="currentIndex">
-         <number>0</number>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <bold>true</bold>
+         </font>
         </property>
-        <widget class="QWidget" name="pageCours">
-         <widget class="QLabel" name="label_7">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>30</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ID cours</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_8">
-          <property name="geometry">
-           <rect>
-            <x>50</x>
-            <y>100</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Nom</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_9">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>120</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Durée</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_10">
-          <property name="geometry">
-           <rect>
-            <x>380</x>
-            <y>150</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Prix</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_11">
-          <property name="geometry">
-           <rect>
-            <x>370</x>
-            <y>200</y>
-            <width>111</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Formateur</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editIdCours">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>40</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editNomCours">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>100</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="comboFormateur">
-          <property name="geometry">
-           <rect>
-            <x>510</x>
-            <y>190</y>
-            <width>201</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editDuree">
-          <property name="geometry">
-           <rect>
-            <x>510</x>
-            <y>100</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editPrix">
-          <property name="geometry">
-           <rect>
-            <x>520</x>
-            <y>160</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnAjouterCours">
-          <property name="geometry">
-           <rect>
-            <x>890</x>
-            <y>40</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Ajouter </string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnModifierCours">
-          <property name="geometry">
-           <rect>
-            <x>900</x>
-            <y>80</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Modifier </string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnSupprimerCours">
-          <property name="geometry">
-           <rect>
-            <x>900</x>
-            <y>140</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Supprimer </string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnAfficherCours">
-          <property name="geometry">
-           <rect>
-            <x>840</x>
-            <y>190</y>
-            <width>161</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Afficher les cours</string>
-          </property>
-         </widget>
-         <widget class="QTableView" name="tableCours">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>290</y>
-            <width>1001</width>
-            <height>261</height>
-           </rect>
-          </property>
-         </widget>
+        <property name="text">
+         <string>📚 COURS</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+    <!-- ===================== STACKED WIDGET ===================== -->
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+
+      <!-- ============= PAGE COURS ============= -->
+      <widget class="QWidget" name="pageCours">
+       <layout class="QVBoxLayout" name="coursOuterLayout">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+        <property name="bottomMargin">
+         <number>6</number>
+        </property>
+
+        <!-- Titre -->
+        <item>
          <widget class="QLabel" name="label_12">
-          <property name="geometry">
-           <rect>
-            <x>370</x>
-            <y>0</y>
-            <width>301</width>
-            <height>20</height>
-           </rect>
+          <property name="font">
+           <font>
+            <underline>true</underline>
+            <bold>true</bold>
+           </font>
           </property>
           <property name="text">
-           <string> GESTION DES FORMATEURS</string>
+           <string>GESTION DES COURS</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
-         <widget class="QLabel" name="label_15">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>160</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
+        </item>
+
+        <!-- Formulaire cours -->
+        <item>
+         <layout class="QGridLayout" name="coursFormLayout">
+          <property name="spacing">
+           <number>8</number>
           </property>
-          <property name="text">
-           <string>Description     </string>
+
+          <!-- Ligne 0 : ID cours -->
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text"><string>ID cours</string></property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="editIdCours"/>
+          </item>
+
+          <!-- Ligne 0 col 2-3 : Niveau -->
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_17">
+            <property name="text"><string>Niveau</string></property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QComboBox" name="comboNiveau">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 0 col 4 : Ajouter -->
+          <item row="0" column="4">
+           <widget class="QPushButton" name="btnAjouterCours">
+            <property name="text"><string>Ajouter</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 1 : Nom cours -->
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text"><string>Nom</string></property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="editNomCours"/>
+          </item>
+
+          <!-- Ligne 1 col 2-3 : Durée -->
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_9">
+            <property name="text"><string>Durée (h)</string></property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="editDuree"/>
+          </item>
+
+          <!-- Ligne 1 col 4 : Modifier -->
+          <item row="1" column="4">
+           <widget class="QPushButton" name="btnModifierCours">
+            <property name="text"><string>Modifier</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 2 : Description -->
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_15">
+            <property name="text"><string>Description</string></property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="editDescriptionCours"/>
+          </item>
+
+          <!-- Ligne 2 col 2-3 : Prix -->
+          <item row="2" column="2">
+           <widget class="QLabel" name="label_10">
+            <property name="text"><string>Prix (TND)</string></property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLineEdit" name="editPrix"/>
+          </item>
+
+          <!-- Ligne 2 col 4 : Supprimer -->
+          <item row="2" column="4">
+           <widget class="QPushButton" name="btnSupprimerCours">
+            <property name="text"><string>Supprimer</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 3 : Date début -->
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="text"><string>Date début</string></property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QDateEdit" name="dateEditDebut">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 3 col 2-3 : Formateur -->
+          <item row="3" column="2">
+           <widget class="QLabel" name="label_11">
+            <property name="text"><string>Formateur</string></property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QComboBox" name="comboFormateur">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 3 col 4 : Afficher -->
+          <item row="3" column="4">
+           <widget class="QPushButton" name="btnAfficherCours">
+            <property name="text"><string>Afficher les cours</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </item>
+
+        <!-- Barre d'outils cours -->
+        <item>
+         <layout class="QHBoxLayout" name="coursToolbarLayout">
+          <property name="spacing">
+           <number>8</number>
           </property>
-         </widget>
-         <widget class="QLabel" name="label_16">
-          <property name="geometry">
-           <rect>
-            <x>40</x>
-            <y>210</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Date début </string>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="dateEditDebut">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>210</y>
-            <width>110</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editDescriptionCours">
-          <property name="geometry">
-           <rect>
-            <x>170</x>
-            <y>160</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_17">
-          <property name="geometry">
-           <rect>
-            <x>390</x>
-            <y>50</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Niveau       </string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="comboNiveau">
-          <property name="geometry">
-           <rect>
-            <x>520</x>
-            <y>40</y>
-            <width>151</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="pageFormateurs">
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>30</y>
-            <width>101</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>ID Formateur</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_2">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>70</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Nom          </string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_3">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>120</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Prénom       </string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_4">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>120</y>
-            <width>91</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Spécialité   </string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_5">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>70</y>
-            <width>81</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Téléphone    </string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_6">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>30</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Email        </string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editIdFormateur">
-          <property name="geometry">
-           <rect>
-            <x>180</x>
-            <y>30</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editNom">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>70</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editPrenom">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>120</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editEmail">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>30</y>
-            <width>271</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editTelephone">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>80</y>
-            <width>181</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editSpecialite">
-          <property name="geometry">
-           <rect>
-            <x>470</x>
-            <y>130</y>
-            <width>271</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnAjouterFormateur">
-          <property name="geometry">
-           <rect>
-            <x>850</x>
-            <y>20</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Ajouter </string>
+          <item>
+           <widget class="QPushButton" name="btnPdfCours">
+            <property name="text"><string>📄 PDF</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStatCours">
+            <property name="text"><string>📊 Statistiques cours</string></property>
+            <property name="minimumSize">
+             <size><width>140</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0">
+             <size><width>40</width><height>20</height></size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRechercherCours">
+            <property name="text"><string>🔍 Rechercher</string></property>
+            <property name="minimumSize">
+             <size><width>110</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="editRechercheCours">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+
+        <!-- Table cours -->
+        <item>
+         <widget class="QTableView" name="tableCours">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
          </widget>
-         <widget class="QPushButton" name="btnModifierFormateur">
-          <property name="geometry">
-           <rect>
-            <x>850</x>
-            <y>70</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Modifier </string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnSupprimerFormateur">
-          <property name="geometry">
-           <rect>
-            <x>850</x>
-            <y>120</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Supprimer </string>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="btnAfficherFormateurs">
-          <property name="geometry">
-           <rect>
-            <x>850</x>
-            <y>170</y>
-            <width>93</width>
-            <height>29</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Afficher</string>
-          </property>
-         </widget>
-         <widget class="QTableView" name="tableFormateurs">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>200</y>
-            <width>1001</width>
-            <height>341</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_13">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>160</y>
-            <width>63</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Salaire</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="editSalaire">
-          <property name="geometry">
-           <rect>
-            <x>190</x>
-            <y>160</y>
-            <width>113</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_14">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>170</y>
-            <width>111</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Date embauche</string>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="dateEditEmbauche">
-          <property name="geometry">
-           <rect>
-            <x>490</x>
-            <y>170</y>
-            <width>110</width>
-            <height>26</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
-       </widget>
+        </item>
+
+       </layout>
       </widget>
-     </item>
-    </layout>
-   </widget>
+
+      <!-- ============= PAGE FORMATEURS ============= -->
+      <widget class="QWidget" name="pageFormateurs">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QVBoxLayout" name="formOuterLayout">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <property name="leftMargin">
+         <number>6</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>6</number>
+        </property>
+        <property name="bottomMargin">
+         <number>6</number>
+        </property>
+
+        <!-- Titre -->
+        <item>
+         <widget class="QLabel" name="labelTitreFormateurs">
+          <property name="font">
+           <font>
+            <underline>true</underline>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>GESTION DES FORMATEURS</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+
+        <!-- Formulaire formateurs -->
+        <item>
+         <layout class="QGridLayout" name="formFormLayout">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+
+          <!-- Ligne 0 : ID / Email -->
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text"><string>ID Formateur</string></property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="editIdFormateur"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_6">
+            <property name="text"><string>Email</string></property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLineEdit" name="editEmail">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="btnAjouterFormateur">
+            <property name="text"><string>Ajouter</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 1 : Nom / Téléphone -->
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text"><string>Nom</string></property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="editNom"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_5">
+            <property name="text"><string>Téléphone</string></property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLineEdit" name="editTelephone"/>
+          </item>
+          <item row="1" column="4">
+           <widget class="QPushButton" name="btnModifierFormateur">
+            <property name="text"><string>Modifier</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 2 : Prénom / Spécialité -->
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text"><string>Prénom</string></property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="editPrenom"/>
+          </item>
+          <item row="2" column="2">
+           <widget class="QLabel" name="label_4">
+            <property name="text"><string>Spécialité</string></property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QComboBox" name="comboSpecialite">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="4">
+           <widget class="QPushButton" name="btnSupprimerFormateur">
+            <property name="text"><string>Supprimer</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+          <!-- Ligne 3 : Salaire / Date embauche -->
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text"><string>Salaire</string></property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="editSalaire"/>
+          </item>
+          <item row="3" column="2">
+           <widget class="QLabel" name="label_14">
+            <property name="text"><string>Date embauche</string></property>
+           </widget>
+          </item>
+          <item row="3" column="3">
+           <widget class="QDateEdit" name="dateEditEmbauche">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QPushButton" name="btnAfficherFormateurs">
+            <property name="text"><string>Afficher</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </item>
+
+        <!-- Barre d'outils formateurs -->
+        <item>
+         <layout class="QHBoxLayout" name="formToolbarLayout">
+          <property name="spacing">
+           <number>8</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnPdfFormateur">
+            <property name="text"><string>📄 PDF</string></property>
+            <property name="minimumSize">
+             <size><width>90</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnStatFormateur">
+            <property name="text"><string>📊 Statistiques formateurs</string></property>
+            <property name="minimumSize">
+             <size><width>160</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0">
+             <size><width>40</width><height>20</height></size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRechercherFormateur">
+            <property name="text"><string>🔍 Rechercher</string></property>
+            <property name="minimumSize">
+             <size><width>110</width><height>30</height></size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="editRechercheFormateur">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+
+        <!-- Table formateurs -->
+        <item>
+         <widget class="QTableView" name="tableFormateurs">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+
+       </layout>
+      </widget>
+
+     </widget>
+    </item>
+
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

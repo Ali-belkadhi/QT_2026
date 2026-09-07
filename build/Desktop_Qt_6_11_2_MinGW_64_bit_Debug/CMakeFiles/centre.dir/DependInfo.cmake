@@ -15,6 +15,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Mega-Pc/Desktop/projetc++/centre/formateur.cpp" "CMakeFiles/centre.dir/formateur.cpp.obj" "gcc" "CMakeFiles/centre.dir/formateur.cpp.obj.d"
   "C:/Users/Mega-Pc/Desktop/projetc++/centre/main.cpp" "CMakeFiles/centre.dir/main.cpp.obj" "gcc" "CMakeFiles/centre.dir/main.cpp.obj.d"
   "C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.cpp" "CMakeFiles/centre.dir/mainwindow.cpp.obj" "gcc" "CMakeFiles/centre.dir/mainwindow.cpp.obj.d"
+  "C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.cpp" "CMakeFiles/centre.dir/statcours.cpp.obj" "gcc" "CMakeFiles/centre.dir/statcours.cpp.obj.d"
+  "C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.cpp" "CMakeFiles/centre.dir/statformateur.cpp.obj" "gcc" "CMakeFiles/centre.dir/statformateur.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

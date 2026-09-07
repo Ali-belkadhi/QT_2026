@@ -18,6 +18,7 @@ private:
     int idFormateur;
 
 public:
+    // Constructeurs
     Cours();
 
     Cours(
@@ -36,7 +37,11 @@ public:
     bool modifier();
     bool supprimer(int id);
 
+    // Affichage
     QSqlQueryModel *afficher();
+
+    // Recherche multicritère
+    QSqlQueryModel *rechercher(const QString &texte);
 
     // Getters
     int getIdCours() const;

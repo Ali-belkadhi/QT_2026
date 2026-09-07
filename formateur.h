@@ -8,6 +8,7 @@
 class Formateur
 {
 private:
+
     int idFormateur;
     QString nom;
     QString prenom;
@@ -18,6 +19,7 @@ private:
     QDate dateEmbauche;
 
 public:
+
     Formateur();
 
     Formateur(
@@ -31,15 +33,21 @@ public:
         const QDate &dateEmbauche
         );
 
-    // CRUD
+
     bool ajouter();
     bool modifier();
     bool supprimer(int id);
 
+
     QSqlQueryModel *afficher();
+
+    QSqlQueryModel *rechercher(
+        const QString &texte
+        );
+
     QSqlQueryModel *listePourCombo();
 
-    // Getters
+
     int getIdFormateur() const;
     QString getNom() const;
     QString getPrenom() const;
@@ -49,7 +57,7 @@ public:
     double getSalaire() const;
     QDate getDateEmbauche() const;
 
-    // Setters
+
     void setIdFormateur(int id);
     void setNom(const QString &nom);
     void setPrenom(const QString &prenom);
