@@ -1,6 +1,11 @@
 centre_autogen/timestamp: \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/QDate \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/QFlags \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/QList \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/QModelIndex \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/QObject \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/QString \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/QTimer \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q20bit.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q20functional.h \
@@ -10,6 +15,7 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q20utility.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q23type_traits.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/q23utility.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qalgorithms.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qalloc.h \
@@ -21,11 +27,13 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qatomic.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qatomic_cxx11.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbasicatomic.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qbasictimer.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbindingstorage.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearray.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearraylist.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qbytearrayview.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qcalendar.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qchar.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qcheckedint_impl.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qcompare.h \
@@ -38,10 +46,14 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qcontainerinfo.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qcontainertools_impl.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qcontiguouscache.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qcryptographichash.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qdarwinhelpers.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qdatastream.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qdatetime.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qdeadlinetimer.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qdebug.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qendian.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qeventloop.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qexceptionhandling.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qflags.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qfloat16.h \
@@ -53,12 +65,14 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qglobalstatic.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qhash.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qhashfunctions.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevice.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qiodevicebase.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qiterable.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qiterator.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qlatin1stringview.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qline.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qlist.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qlocale.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qlogging.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qmalloc.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qmap.h \
@@ -115,6 +129,7 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtextstream.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtformat_impl.h \
+	C:/Qt/6.11.2/mingw_64/include/QtCore/qtimer.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtmetamacros.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtnoop.h \
 	C:/Qt/6.11.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -157,6 +172,18 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/include/QtGui/qtransform.h \
 	C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/6.11.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/QSslError \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/QSslSocket \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qabstractsocket.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qhostaddress.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qssl.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qsslcertificate.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qsslerror.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qsslsocket.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qtcpsocket.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qtnetwork-config.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qtnetworkexports.h \
+	C:/Qt/6.11.2/mingw_64/include/QtNetwork/qtnetworkglobal.h \
 	C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQueryModel \
 	C:/Qt/6.11.2/mingw_64/include/QtSql/qsqldatabase.h \
 	C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquerymodel.h \
@@ -333,6 +360,36 @@ centre_autogen/timestamp: \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargetsPrecheck.cmake \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargetsPrecheck.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargetsPrecheck.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargetsPrecheck.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargetsPrecheck.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake \
+	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargetsPrecheck.cmake \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLAdditionalTargetInfo.cmake \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfig.cmake \
 	C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfigVersion.cmake \
@@ -673,11 +730,15 @@ centre_autogen/timestamp: \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/cours.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/database.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/database.h \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/emailservice.cpp \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/emailservice.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/formateur.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/formateur.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/main.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/smtpclient.cpp \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/smtpclient.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.cpp \

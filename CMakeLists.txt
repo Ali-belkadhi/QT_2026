@@ -21,6 +21,7 @@ find_package(
         Widgets
         Sql
         Charts
+        Network
 )
 
 find_package(
@@ -29,6 +30,7 @@ find_package(
         Widgets
         Sql
         Charts
+        Network
 )
 
 
@@ -70,6 +72,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         statcours.h
         statcours.cpp
+        emailservice.h emailservice.cpp
+        smtpclient.h smtpclient.cpp
     )
 
 else()
@@ -93,6 +97,11 @@ else()
 
             statcours.h
             statcours.cpp
+
+            emailservice.h
+            emailservice.cpp
+            smtpclient.h
+            smtpclient.cpp
         )
 
     else()
@@ -114,6 +123,11 @@ else()
 
             statcours.h
             statcours.cpp
+
+            emailservice.h
+            emailservice.cpp
+            smtpclient.h
+            smtpclient.cpp
         )
 
     endif()
@@ -132,6 +146,7 @@ target_link_libraries(
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
     Qt${QT_VERSION_MAJOR}::Charts
+    Qt${QT_VERSION_MAJOR}::Network
 )
 
 

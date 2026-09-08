@@ -271,6 +271,30 @@ database.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/database.cpp.s
 .PHONY : database.cpp.s
 
+emailservice.obj: emailservice.cpp.obj
+.PHONY : emailservice.obj
+
+# target to build an object file
+emailservice.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/emailservice.cpp.obj
+.PHONY : emailservice.cpp.obj
+
+emailservice.i: emailservice.cpp.i
+.PHONY : emailservice.i
+
+# target to preprocess a source file
+emailservice.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/emailservice.cpp.i
+.PHONY : emailservice.cpp.i
+
+emailservice.s: emailservice.cpp.s
+.PHONY : emailservice.s
+
+# target to generate assembly for a file
+emailservice.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/emailservice.cpp.s
+.PHONY : emailservice.cpp.s
+
 formateur.obj: formateur.cpp.obj
 .PHONY : formateur.obj
 
@@ -342,6 +366,30 @@ mainwindow.s: mainwindow.cpp.s
 mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
+
+smtpclient.obj: smtpclient.cpp.obj
+.PHONY : smtpclient.obj
+
+# target to build an object file
+smtpclient.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/smtpclient.cpp.obj
+.PHONY : smtpclient.cpp.obj
+
+smtpclient.i: smtpclient.cpp.i
+.PHONY : smtpclient.i
+
+# target to preprocess a source file
+smtpclient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/smtpclient.cpp.i
+.PHONY : smtpclient.cpp.i
+
+smtpclient.s: smtpclient.cpp.s
+.PHONY : smtpclient.s
+
+# target to generate assembly for a file
+smtpclient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\centre.dir\build.make CMakeFiles/centre.dir/smtpclient.cpp.s
+.PHONY : smtpclient.cpp.s
 
 statcours.obj: statcours.cpp.obj
 .PHONY : statcours.obj
@@ -415,6 +463,9 @@ help:
 	@echo ... database.obj
 	@echo ... database.i
 	@echo ... database.s
+	@echo ... emailservice.obj
+	@echo ... emailservice.i
+	@echo ... emailservice.s
 	@echo ... formateur.obj
 	@echo ... formateur.i
 	@echo ... formateur.s
@@ -424,6 +475,9 @@ help:
 	@echo ... mainwindow.obj
 	@echo ... mainwindow.i
 	@echo ... mainwindow.s
+	@echo ... smtpclient.obj
+	@echo ... smtpclient.i
+	@echo ... smtpclient.s
 	@echo ... statcours.obj
 	@echo ... statcours.i
 	@echo ... statcours.s

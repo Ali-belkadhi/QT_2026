@@ -398,6 +398,9 @@ CMakeFiles/centre.dir/statcours.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qlayoutitem.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QFrame \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QTabWidget \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/QSqlQuery \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qsqlquery.h \
  C:/Qt/6.11.2/mingw_64/include/QtSql/qtsqlglobal.h \
@@ -472,4 +475,17 @@ CMakeFiles/centre.dir/statcours.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtCharts/QPieSlice \
  C:/Qt/6.11.2/mingw_64/include/QtCharts/qpieslice.h \
  C:/Qt/6.11.2/mingw_64/include/QtCharts/QPieSlice \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QPainter
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QAbstractBarSeries \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qabstractbarseries.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QStringList \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarSet \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarset.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QBarCategoryAxis \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qbarcategoryaxis.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/QValueAxis \
+ C:/Qt/6.11.2/mingw_64/include/QtCharts/qvalueaxis.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QPainter \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QColor \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QFont

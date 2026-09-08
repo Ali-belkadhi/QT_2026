@@ -16,7 +16,6 @@ public:
 
 private:
     QLabel *labelTotal;
-    QLabel *labelSalaireMoyen;
     QLabel *labelSalaireMin;
     QLabel *labelSalaireMax;
 

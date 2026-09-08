@@ -7,6 +7,8 @@
 #include "statformateur.h"
 #include "statcours.h"
 
+#include "emailservice.h"
+
 
 #include <QMessageBox>
 
@@ -324,6 +326,29 @@ MainWindow::MainWindow(
     ui->setupUi(this);
 
 
+    // =================================================
+    // SERVICE EMAIL
+    // =================================================
+
+    emailService = new EmailService(this);
+
+
+    connect(
+        emailService,
+        &EmailService::emailEnvoye,
+        this,
+        &MainWindow::onEmailEnvoye
+        );
+
+
+    connect(
+        emailService,
+        &EmailService::erreurEmail,
+        this,
+        &MainWindow::onErreurEmail
+        );
+
+
     setMinimumSize(
         1000,
         700
@@ -608,6 +633,29 @@ MainWindow::MainWindow(
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+// =====================================================
+// CALLBACKS EMAIL
+// =====================================================
+
+void MainWindow::onEmailEnvoye()
+{
+    qDebug()
+        << "[MainWindow] ✅ Email de confirmation envoyé avec succès.";
+}
+
+
+void MainWindow::onErreurEmail(const QString &message)
+{
+    qWarning()
+        << "[MainWindow] ⚠️  Email non envoyé :"
+        << message;
+
+    // On N'affiche PAS de QMessageBox à l'utilisateur :
+    // l'ajout du formateur a déjà réussi — l'email est secondaire.
+    // L'erreur est visible uniquement dans la console (qWarning).
 }
 
 
@@ -955,6 +1003,38 @@ void MainWindow::configurerControlesSaisie()
 
 
 // =====================================================
+// VALIDATION EMAIL
+// =====================================================
+
+bool MainWindow::validerEmail(const QString &email)
+{
+    QString clean = email.trimmed();
+
+    if (clean.isEmpty()) {
+        return false;
+    }
+
+    // 1. Rejeter les doubles points consécutifs (ex: ali..test@gmail.com ou ali@gmail..com)
+    if (clean.contains("..")) {
+        return false;
+    }
+
+    // 2. Rejeter si commence ou se termine par un point ou arobase
+    if (clean.startsWith('.') || clean.endsWith('.') ||
+        clean.startsWith('@') || clean.endsWith('@')) {
+        return false;
+    }
+
+    // 3. Expression régulière stricte (local-part @ domain . TLD)
+    static const QRegularExpression regexStrict(
+        "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    );
+
+    return regexStrict.match(clean).hasMatch();
+}
+
+
+// =====================================================
 // VALIDATION FORMATEUR
 // =====================================================
 
@@ -1011,22 +1091,15 @@ bool MainWindow::validerFormateur()
             .trimmed();
 
 
-    QRegularExpression regexEmail(
-        "^[A-Za-z0-9._%+-]+@"
-        "[A-Za-z0-9.-]+\\."
-        "[A-Za-z]{2,}$"
-        );
-
-
-    if (!regexEmail
-             .match(email)
-             .hasMatch())
+    if (!validerEmail(email))
     {
         QMessageBox::warning(
             this,
-            "Contrôle de saisie",
-            "Adresse email invalide."
+            "Validation",
+            "Adresse email invalide. Veuillez vérifier l'adresse saisie."
             );
+
+        ui->editEmail->setFocus();
 
         return false;
     }
@@ -1588,6 +1661,21 @@ void MainWindow::on_btnAjouterFormateur_clicked()
             this,
             "Succès",
             "Formateur ajouté avec succès."
+            );
+
+
+        // =============================================
+        // ENVOI EMAIL DE CONFIRMATION (asynchrone)
+        // =============================================
+
+        qDebug() << "[MainWindow] Destinataire email :" << formateur.getEmail();
+
+        emailService->envoyerConfirmationFormateur(
+            formateur.getPrenom(),
+            formateur.getNom(),
+            formateur.getEmail(),
+            formateur.getSpecialite(),
+            formateur.getDateEmbauche()
             );
 
 

@@ -477,6 +477,8 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QDialog \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialog.h \
  C:\Users\Mega-Pc\Desktop\projetc++\centre\statcours.h \
+ C:\Users\Mega-Pc\Desktop\projetc++\centre\emailservice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QObject \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QMessageBox \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qmessagebox.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qdialogbuttonbox.h \

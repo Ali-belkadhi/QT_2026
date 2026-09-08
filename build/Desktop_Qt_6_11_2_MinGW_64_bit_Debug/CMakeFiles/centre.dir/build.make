@@ -195,6 +195,36 @@ CMakeFiles/centre.dir/statcours.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/centre.dir/statcours.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mega-Pc\Desktop\projetc++\centre\statcours.cpp -o CMakeFiles\centre.dir\statcours.cpp.s
 
+CMakeFiles/centre.dir/emailservice.cpp.obj: CMakeFiles/centre.dir/flags.make
+CMakeFiles/centre.dir/emailservice.cpp.obj: CMakeFiles/centre.dir/includes_CXX.rsp
+CMakeFiles/centre.dir/emailservice.cpp.obj: C:/Users/Mega-Pc/Desktop/projetc++/centre/emailservice.cpp
+CMakeFiles/centre.dir/emailservice.cpp.obj: CMakeFiles/centre.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Mega-Pc\Desktop\projetc++\centre\build\Desktop_Qt_6_11_2_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/centre.dir/emailservice.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/centre.dir/emailservice.cpp.obj -MF CMakeFiles\centre.dir\emailservice.cpp.obj.d -o CMakeFiles\centre.dir\emailservice.cpp.obj -c C:\Users\Mega-Pc\Desktop\projetc++\centre\emailservice.cpp
+
+CMakeFiles/centre.dir/emailservice.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/centre.dir/emailservice.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Mega-Pc\Desktop\projetc++\centre\emailservice.cpp > CMakeFiles\centre.dir\emailservice.cpp.i
+
+CMakeFiles/centre.dir/emailservice.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/centre.dir/emailservice.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mega-Pc\Desktop\projetc++\centre\emailservice.cpp -o CMakeFiles\centre.dir\emailservice.cpp.s
+
+CMakeFiles/centre.dir/smtpclient.cpp.obj: CMakeFiles/centre.dir/flags.make
+CMakeFiles/centre.dir/smtpclient.cpp.obj: CMakeFiles/centre.dir/includes_CXX.rsp
+CMakeFiles/centre.dir/smtpclient.cpp.obj: C:/Users/Mega-Pc/Desktop/projetc++/centre/smtpclient.cpp
+CMakeFiles/centre.dir/smtpclient.cpp.obj: CMakeFiles/centre.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Mega-Pc\Desktop\projetc++\centre\build\Desktop_Qt_6_11_2_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/centre.dir/smtpclient.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/centre.dir/smtpclient.cpp.obj -MF CMakeFiles\centre.dir\smtpclient.cpp.obj.d -o CMakeFiles\centre.dir\smtpclient.cpp.obj -c C:\Users\Mega-Pc\Desktop\projetc++\centre\smtpclient.cpp
+
+CMakeFiles/centre.dir/smtpclient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/centre.dir/smtpclient.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Mega-Pc\Desktop\projetc++\centre\smtpclient.cpp > CMakeFiles\centre.dir\smtpclient.cpp.i
+
+CMakeFiles/centre.dir/smtpclient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/centre.dir/smtpclient.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Mega-Pc\Desktop\projetc++\centre\smtpclient.cpp -o CMakeFiles\centre.dir\smtpclient.cpp.s
+
 # Object files for target centre
 centre_OBJECTS = \
 "CMakeFiles/centre.dir/centre_autogen/mocs_compilation.cpp.obj" \
@@ -204,7 +234,9 @@ centre_OBJECTS = \
 "CMakeFiles/centre.dir/formateur.cpp.obj" \
 "CMakeFiles/centre.dir/cours.cpp.obj" \
 "CMakeFiles/centre.dir/statformateur.cpp.obj" \
-"CMakeFiles/centre.dir/statcours.cpp.obj"
+"CMakeFiles/centre.dir/statcours.cpp.obj" \
+"CMakeFiles/centre.dir/emailservice.cpp.obj" \
+"CMakeFiles/centre.dir/smtpclient.cpp.obj"
 
 # External object files for target centre
 centre_EXTERNAL_OBJECTS =
@@ -217,9 +249,12 @@ centre.exe: CMakeFiles/centre.dir/formateur.cpp.obj
 centre.exe: CMakeFiles/centre.dir/cours.cpp.obj
 centre.exe: CMakeFiles/centre.dir/statformateur.cpp.obj
 centre.exe: CMakeFiles/centre.dir/statcours.cpp.obj
+centre.exe: CMakeFiles/centre.dir/emailservice.cpp.obj
+centre.exe: CMakeFiles/centre.dir/smtpclient.cpp.obj
 centre.exe: CMakeFiles/centre.dir/build.make
 centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6Sql.a
 centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6Charts.a
+centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6Network.a
 centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6OpenGLWidgets.a
 centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6Widgets.a
 centre.exe: C:/Qt/6.11.2/mingw_64/lib/libQt6OpenGL.a
@@ -230,7 +265,7 @@ centre.exe: centre.exe.manifest
 centre.exe: CMakeFiles/centre.dir/linkLibs.rsp
 centre.exe: CMakeFiles/centre.dir/objects1.rsp
 centre.exe: CMakeFiles/centre.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Mega-Pc\Desktop\projetc++\centre\build\Desktop_Qt_6_11_2_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable centre.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Mega-Pc\Desktop\projetc++\centre\build\Desktop_Qt_6_11_2_MinGW_64_bit_Debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable centre.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\centre.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

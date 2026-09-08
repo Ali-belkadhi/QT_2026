@@ -5,6 +5,7 @@
 
 class QLabel;
 class QChartView;
+class QTabWidget;
 
 class StatCours : public QDialog
 {
@@ -14,11 +15,14 @@ public:
     void actualiser();
 
 private:
+    // Cartes
     QLabel *labelTotal;
-    QLabel *labelPrixMoyen;
-    QLabel *labelDureeMoyenne;
+    QLabel *labelPrixMin;
+    QLabel *labelPrixMax;
 
-    QChartView *chartView;
+    // Graphiques
+    QChartView *chartViewNiveau;
+    QChartView *chartViewFormateur;
 
     void construireInterface();
 };

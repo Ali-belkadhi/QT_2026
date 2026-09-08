@@ -33,7 +33,6 @@
 StatFormateur::StatFormateur(QWidget *parent)
     : QDialog(parent),
     labelTotal(nullptr),
-    labelSalaireMoyen(nullptr),
     labelSalaireMin(nullptr),
     labelSalaireMax(nullptr),
     chartViewSpecialite(nullptr),
@@ -231,24 +230,12 @@ void StatFormateur::construireInterface()
     };
 
 
-    QLabel *dummy1 = nullptr;
-    QLabel *dummy2 = nullptr;
-
     QFrame *carteTotal =
         creerCarte(
             "👥",
             "TOTAL FORMATEURS",
             "0",
             labelTotal
-            );
-
-
-    QFrame *carteMoyen =
-        creerCarte(
-            "💰",
-            "SALAIRE MOYEN",
-            "0 TND",
-            labelSalaireMoyen
             );
 
 
@@ -281,17 +268,6 @@ void StatFormateur::construireInterface()
         "}"
     );
 
-    carteMoyen->setStyleSheet(
-        "QFrame#carte {"
-        "  background: qlineargradient(x1:0,y1:0,x2:1,y2:1,"
-        "    stop:0 #1a3a2e, stop:1 #0d2318);"
-        "  border: 1px solid #2e7d52;"
-        "  border-radius: 12px;"
-        "  padding: 5px;"
-        "}"
-        "QLabel#carteValeur { color: #66bb6a; background: transparent; }"
-    );
-
     carteMin->setStyleSheet(
         "QFrame#carte {"
         "  background: qlineargradient(x1:0,y1:0,x2:1,y2:1,"
@@ -316,7 +292,6 @@ void StatFormateur::construireInterface()
 
 
     layoutCartes->addWidget(carteTotal);
-    layoutCartes->addWidget(carteMoyen);
     layoutCartes->addWidget(carteMin);
     layoutCartes->addWidget(carteMax);
 
@@ -488,9 +463,8 @@ void StatFormateur::actualiser()
     // STATISTIQUES SALAIRES
     // =================================================
 
-    double salaireMoyen = 0.0;
-    double salaireMin   = 0.0;
-    double salaireMax   = 0.0;
+    double salaireMin = 0.0;
+    double salaireMax = 0.0;
 
 
     QSqlQuery querySalaire;
@@ -498,7 +472,6 @@ void StatFormateur::actualiser()
 
     querySalaire.prepare(
         "SELECT "
-        "NVL(AVG(SALAIRE), 0), "
         "NVL(MIN(SALAIRE), 0), "
         "NVL(MAX(SALAIRE), 0) "
         "FROM FORMATEUR"
@@ -508,14 +481,8 @@ void StatFormateur::actualiser()
     if (querySalaire.exec() &&
         querySalaire.next())
     {
-        salaireMoyen =
-            querySalaire.value(0).toDouble();
-
-        salaireMin =
-            querySalaire.value(1).toDouble();
-
-        salaireMax =
-            querySalaire.value(2).toDouble();
+        salaireMin = querySalaire.value(0).toDouble();
+        salaireMax = querySalaire.value(1).toDouble();
     }
     else
     {
@@ -525,22 +492,15 @@ void StatFormateur::actualiser()
     }
 
 
-    labelSalaireMoyen->setText(
-        QString::number(salaireMoyen, 'f', 2)
-        + " TND"
-        );
-
-
     labelSalaireMin->setText(
-        QString::number(salaireMin, 'f', 2)
-        + " TND"
+        QString::number(salaireMin, 'f', 2) + " TND"
         );
 
 
     labelSalaireMax->setText(
-        QString::number(salaireMax, 'f', 2)
-        + " TND"
+        QString::number(salaireMax, 'f', 2) + " TND"
         );
+
 
 
     // =================================================

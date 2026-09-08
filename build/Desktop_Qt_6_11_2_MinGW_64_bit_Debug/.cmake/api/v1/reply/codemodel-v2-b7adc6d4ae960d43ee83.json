@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-5aab1b6da716c4ae6a29.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "centre",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "centre::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-centre-Debug-586fcf71b63469028235.json",
+					"name" : "centre",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "centre_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-centre_autogen-Debug-9d01edb39cb9feab11fe.json",
+					"name" : "centre_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "centre_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-centre_autogen_timestamp_deps-Debug-d1bb1b0e6a005fe08301.json",
+					"name" : "centre_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug",
+		"source" : "C:/Users/Mega-Pc/Desktop/projetc++/centre"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -14,6 +14,7 @@
 
 class StatFormateur;
 class StatCours;
+class EmailService;
 
 
 QT_BEGIN_NAMESPACE
@@ -160,6 +161,22 @@ private:
 
 
     // =====================================================
+    // SERVICE EMAIL
+    // =====================================================
+
+    EmailService *emailService = nullptr;
+
+
+    // =====================================================
+    // SLOTS EMAIL
+    // =====================================================
+
+    void onEmailEnvoye();
+
+    void onErreurEmail(const QString &message);
+
+
+    // =====================================================
     // FORMATEURS
     // =====================================================
 
@@ -184,6 +201,8 @@ private:
     // =====================================================
 
     void configurerControlesSaisie();
+
+    bool validerEmail(const QString &email);
 
     bool validerFormateur();
 
