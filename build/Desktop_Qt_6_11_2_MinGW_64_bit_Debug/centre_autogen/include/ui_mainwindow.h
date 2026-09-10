@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QGridLayout>
@@ -35,10 +36,28 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QVBoxLayout *mainLayout;
+    QWidget *navWidget;
     QHBoxLayout *navLayout;
     QPushButton *btnFormateurs;
     QPushButton *btnCours;
     QStackedWidget *stackedWidget;
+    QWidget *pageLogin;
+    QVBoxLayout *loginOuterLayout;
+    QSpacerItem *loginSpacerTop;
+    QHBoxLayout *loginCenterLayout;
+    QSpacerItem *loginSpacerLeft;
+    QWidget *loginCard;
+    QVBoxLayout *loginCardLayout;
+    QLabel *labelLoginLogo;
+    QLabel *labelLoginEmail;
+    QLineEdit *editLoginEmail;
+    QLabel *labelLoginPassword;
+    QLineEdit *editLoginPassword;
+    QCheckBox *checkAfficherPassword;
+    QPushButton *btnLogin;
+    QLabel *labelLoginErreur;
+    QSpacerItem *loginSpacerRight;
+    QSpacerItem *loginSpacerBottom;
     QWidget *pageCours;
     QVBoxLayout *coursOuterLayout;
     QLabel *label_12;
@@ -115,10 +134,13 @@ public:
         mainLayout->setSpacing(6);
         mainLayout->setObjectName("mainLayout");
         mainLayout->setContentsMargins(10, 8, 10, 8);
-        navLayout = new QHBoxLayout();
+        navWidget = new QWidget(centralwidget);
+        navWidget->setObjectName("navWidget");
+        navLayout = new QHBoxLayout(navWidget);
         navLayout->setSpacing(6);
         navLayout->setObjectName("navLayout");
-        btnFormateurs = new QPushButton(centralwidget);
+        navLayout->setContentsMargins(0, 0, 0, 0);
+        btnFormateurs = new QPushButton(navWidget);
         btnFormateurs->setObjectName("btnFormateurs");
         QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -133,7 +155,7 @@ public:
 
         navLayout->addWidget(btnFormateurs);
 
-        btnCours = new QPushButton(centralwidget);
+        btnCours = new QPushButton(navWidget);
         btnCours->setObjectName("btnCours");
         sizePolicy.setHeightForWidth(btnCours->sizePolicy().hasHeightForWidth());
         btnCours->setSizePolicy(sizePolicy);
@@ -143,7 +165,7 @@ public:
         navLayout->addWidget(btnCours);
 
 
-        mainLayout->addLayout(navLayout);
+        mainLayout->addWidget(navWidget);
 
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
@@ -152,6 +174,103 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(stackedWidget->sizePolicy().hasHeightForWidth());
         stackedWidget->setSizePolicy(sizePolicy1);
+        pageLogin = new QWidget();
+        pageLogin->setObjectName("pageLogin");
+        loginOuterLayout = new QVBoxLayout(pageLogin);
+        loginOuterLayout->setSpacing(0);
+        loginOuterLayout->setObjectName("loginOuterLayout");
+        loginOuterLayout->setContentsMargins(0, 0, 0, 0);
+        loginSpacerTop = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        loginOuterLayout->addItem(loginSpacerTop);
+
+        loginCenterLayout = new QHBoxLayout();
+        loginCenterLayout->setObjectName("loginCenterLayout");
+        loginSpacerLeft = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        loginCenterLayout->addItem(loginSpacerLeft);
+
+        loginCard = new QWidget(pageLogin);
+        loginCard->setObjectName("loginCard");
+        loginCard->setMinimumSize(QSize(420, 480));
+        loginCard->setMaximumSize(QSize(460, 520));
+        loginCardLayout = new QVBoxLayout(loginCard);
+        loginCardLayout->setSpacing(18);
+        loginCardLayout->setObjectName("loginCardLayout");
+        loginCardLayout->setContentsMargins(40, 40, 40, 40);
+        labelLoginLogo = new QLabel(loginCard);
+        labelLoginLogo->setObjectName("labelLoginLogo");
+        labelLoginLogo->setMinimumSize(QSize(0, 130));
+        labelLoginLogo->setMaximumSize(QSize(16777215, 160));
+        labelLoginLogo->setAlignment(Qt::AlignCenter);
+
+        loginCardLayout->addWidget(labelLoginLogo);
+
+        labelLoginEmail = new QLabel(loginCard);
+        labelLoginEmail->setObjectName("labelLoginEmail");
+        QFont font1;
+        font1.setPointSize(10);
+        font1.setBold(true);
+        labelLoginEmail->setFont(font1);
+
+        loginCardLayout->addWidget(labelLoginEmail);
+
+        editLoginEmail = new QLineEdit(loginCard);
+        editLoginEmail->setObjectName("editLoginEmail");
+        editLoginEmail->setMinimumSize(QSize(0, 40));
+
+        loginCardLayout->addWidget(editLoginEmail);
+
+        labelLoginPassword = new QLabel(loginCard);
+        labelLoginPassword->setObjectName("labelLoginPassword");
+        labelLoginPassword->setFont(font1);
+
+        loginCardLayout->addWidget(labelLoginPassword);
+
+        editLoginPassword = new QLineEdit(loginCard);
+        editLoginPassword->setObjectName("editLoginPassword");
+        editLoginPassword->setMinimumSize(QSize(0, 40));
+        editLoginPassword->setEchoMode(QLineEdit::Password);
+
+        loginCardLayout->addWidget(editLoginPassword);
+
+        checkAfficherPassword = new QCheckBox(loginCard);
+        checkAfficherPassword->setObjectName("checkAfficherPassword");
+
+        loginCardLayout->addWidget(checkAfficherPassword);
+
+        btnLogin = new QPushButton(loginCard);
+        btnLogin->setObjectName("btnLogin");
+        btnLogin->setMinimumSize(QSize(0, 44));
+        btnLogin->setFont(font);
+
+        loginCardLayout->addWidget(btnLogin);
+
+        labelLoginErreur = new QLabel(loginCard);
+        labelLoginErreur->setObjectName("labelLoginErreur");
+        QFont font2;
+        font2.setPointSize(9);
+        labelLoginErreur->setFont(font2);
+        labelLoginErreur->setAlignment(Qt::AlignCenter);
+        labelLoginErreur->setWordWrap(true);
+
+        loginCardLayout->addWidget(labelLoginErreur);
+
+
+        loginCenterLayout->addWidget(loginCard);
+
+        loginSpacerRight = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        loginCenterLayout->addItem(loginSpacerRight);
+
+
+        loginOuterLayout->addLayout(loginCenterLayout);
+
+        loginSpacerBottom = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        loginOuterLayout->addItem(loginSpacerBottom);
+
+        stackedWidget->addWidget(pageLogin);
         pageCours = new QWidget();
         pageCours->setObjectName("pageCours");
         coursOuterLayout = new QVBoxLayout(pageCours);
@@ -160,10 +279,10 @@ public:
         coursOuterLayout->setContentsMargins(6, 10, 6, 6);
         label_12 = new QLabel(pageCours);
         label_12->setObjectName("label_12");
-        QFont font1;
-        font1.setBold(true);
-        font1.setUnderline(true);
-        label_12->setFont(font1);
+        QFont font3;
+        font3.setBold(true);
+        font3.setUnderline(true);
+        label_12->setFont(font3);
         label_12->setAlignment(Qt::AlignCenter);
 
         coursOuterLayout->addWidget(label_12);
@@ -337,7 +456,7 @@ public:
         formOuterLayout->setContentsMargins(6, 10, 6, 6);
         labelTitreFormateurs = new QLabel(pageFormateurs);
         labelTitreFormateurs->setObjectName("labelTitreFormateurs");
-        labelTitreFormateurs->setFont(font1);
+        labelTitreFormateurs->setFont(font3);
         labelTitreFormateurs->setAlignment(Qt::AlignCenter);
 
         formOuterLayout->addWidget(labelTitreFormateurs);
@@ -515,7 +634,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -523,9 +642,17 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Centre de Formation", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "SmartSkills", nullptr));
         btnFormateurs->setText(QCoreApplication::translate("MainWindow", "\360\237\221\250\342\200\215\360\237\217\253 FORMATEURS", nullptr));
         btnCours->setText(QCoreApplication::translate("MainWindow", "\360\237\223\232 COURS", nullptr));
+        labelLoginLogo->setText(QString());
+        labelLoginEmail->setText(QCoreApplication::translate("MainWindow", "Email", nullptr));
+        editLoginEmail->setPlaceholderText(QCoreApplication::translate("MainWindow", "Votre adresse email", nullptr));
+        labelLoginPassword->setText(QCoreApplication::translate("MainWindow", "Mot de passe", nullptr));
+        editLoginPassword->setPlaceholderText(QCoreApplication::translate("MainWindow", "Votre mot de passe", nullptr));
+        checkAfficherPassword->setText(QCoreApplication::translate("MainWindow", "Afficher le mot de passe", nullptr));
+        btnLogin->setText(QCoreApplication::translate("MainWindow", "Se connecter", nullptr));
+        labelLoginErreur->setText(QString());
         label_12->setText(QCoreApplication::translate("MainWindow", "GESTION DES COURS", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "ID cours", nullptr));
         label_17->setText(QCoreApplication::translate("MainWindow", "Niveau", nullptr));

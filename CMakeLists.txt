@@ -44,6 +44,7 @@ set(PROJECT_SOURCES
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    resources.qrc
 )
 
 
@@ -74,6 +75,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         statcours.cpp
         emailservice.h emailservice.cpp
         smtpclient.h smtpclient.cpp
+        utilisateur.h utilisateur.cpp
+
+
     )
 
 else()

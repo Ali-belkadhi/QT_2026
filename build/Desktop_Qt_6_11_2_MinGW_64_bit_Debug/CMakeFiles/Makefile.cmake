@@ -318,6 +318,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.30.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.30.5/CMakeRCCompiler.cmake"
   "CMakeFiles/3.30.5/CMakeSystem.cmake"
+  "C:/Users/Mega-Pc/Desktop/projetc++/centre/resources.qrc"
   )
 
 # The corresponding makefile is:
@@ -330,6 +331,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "centre.exe.manifest"
   "CMakeFiles/centre_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/centre_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json"
   ".qt/QtDeploySupport.cmake"
   ".qt/QtDeployTargets.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"

@@ -7,6 +7,9 @@
 #include <QSqlQueryModel>
 #include <QPushButton>
 
+#include "utilisateur.h"
+
+
 
 // =====================================================
 // DECLARATIONS
@@ -42,6 +45,17 @@ public:
 
 
 private slots:
+
+    // =====================================================
+    // LOGIN
+    // =====================================================
+
+    void on_btnLogin_clicked();
+
+    void on_checkAfficherPassword_toggled(
+        bool checked
+        );
+
 
     // =====================================================
     // NAVIGATION
@@ -158,6 +172,13 @@ private:
     StatFormateur *fenetreStatFormateur = nullptr;
 
     StatCours *fenetreStatCours = nullptr;
+
+
+    // =====================================================
+    // ETAT CONNEXION
+    // =====================================================
+
+    bool utilisateurConnecte = false;
 
 
     // =====================================================

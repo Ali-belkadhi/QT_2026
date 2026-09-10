@@ -12,7 +12,7 @@ private:
     QString nomCours;
     QString description;
     QString niveau;
-    int duree;
+    QString duree;
     double prix;
     QDate dateDebut;
     int idFormateur;
@@ -26,7 +26,7 @@ public:
         const QString &nomCours,
         const QString &description,
         const QString &niveau,
-        int duree,
+        const QString &duree,
         double prix,
         const QDate &dateDebut,
         int idFormateur
@@ -48,7 +48,7 @@ public:
     QString getNomCours() const;
     QString getDescription() const;
     QString getNiveau() const;
-    int getDuree() const;
+    QString getDuree() const;
     double getPrix() const;
     QDate getDateDebut() const;
     int getIdFormateur() const;
@@ -58,7 +58,7 @@ public:
     void setNomCours(const QString &nom);
     void setDescription(const QString &description);
     void setNiveau(const QString &niveau);
-    void setDuree(int duree);
+    void setDuree(const QString &duree);
     void setPrix(double prix);
     void setDateDebut(const QDate &date);
     void setIdFormateur(int id);

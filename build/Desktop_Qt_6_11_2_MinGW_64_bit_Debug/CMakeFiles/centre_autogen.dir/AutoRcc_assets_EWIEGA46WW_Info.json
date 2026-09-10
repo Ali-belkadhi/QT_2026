@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre",
+	"CMAKE_SOURCE_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "MinGW Makefiles",
+	"INCLUDE_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/centre_autogen.dir/AutoRcc_assets_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "assets" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_assets.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.11.2/mingw_64/bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/CMakeFiles/centre_autogen.dir/AutoRcc_assets_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/Mega-Pc/Desktop/projetc++/centre/assets.qrc",
+	"USE_BETTER_GRAPH" : true,
+	"VERBOSITY" : 0
+}

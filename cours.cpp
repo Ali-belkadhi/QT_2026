@@ -14,7 +14,7 @@
 
 Cours::Cours()
     : idCours(0),
-    duree(0),
+    duree(""),
     prix(0.0),
     idFormateur(0)
 {
@@ -30,7 +30,7 @@ Cours::Cours(
     const QString &nomCours,
     const QString &description,
     const QString &niveau,
-    int duree,
+    const QString &duree,
     double prix,
     const QDate &dateDebut,
     int idFormateur
@@ -44,6 +44,26 @@ Cours::Cours(
     dateDebut(dateDebut),
     idFormateur(idFormateur)
 {
+}
+
+
+namespace {
+double dureeEnHeures(const QString &dureeStr)
+{
+    QString s = dureeStr.trimmed();
+    if (s.contains(":"))
+    {
+        QStringList parts = s.split(":");
+        if (parts.size() == 2)
+        {
+            double hh = parts[0].toDouble();
+            double mm = parts[1].toDouble();
+            return hh + (mm / 60.0);
+        }
+    }
+    s.replace(",", ".");
+    return s.toDouble();
+}
 }
 
 
@@ -75,7 +95,7 @@ bool Cours::ajouter()
     query.addBindValue(nomCours);
     query.addBindValue(description);
     query.addBindValue(niveau);
-    query.addBindValue(duree);
+    query.addBindValue(dureeEnHeures(duree));
     query.addBindValue(prix);
 
     query.addBindValue(
@@ -121,7 +141,7 @@ bool Cours::modifier()
     query.addBindValue(nomCours);
     query.addBindValue(description);
     query.addBindValue(niveau);
-    query.addBindValue(duree);
+    query.addBindValue(dureeEnHeures(duree));
     query.addBindValue(prix);
 
     query.addBindValue(
@@ -192,8 +212,8 @@ QSqlQueryModel *Cours::afficher()
         "C.NOM_COURS, "
         "C.DESCRIPTION, "
         "C.NIVEAU, "
-        "C.DUREE, "
-        "C.PRIX, "
+        "LPAD(TRUNC(NVL(C.DUREE, 0)), 2, '0') || ':' || LPAD(ROUND((NVL(C.DUREE, 0) - TRUNC(NVL(C.DUREE, 0))) * 60), 2, '0') AS DUREE, "
+        "TRIM(TO_CHAR(NVL(C.PRIX, 0), 'FM99999990.000')) || ' TND' AS PRIX, "
         "TO_CHAR(C.DATE_DEBUT, 'DD/MM/YYYY') AS DATE_DEBUT, "
         "F.NOM || ' ' || F.PRENOM AS FORMATEUR, "
         "C.ID_FORMATEUR "
@@ -300,8 +320,8 @@ QSqlQueryModel *Cours::rechercher(
         "C.NOM_COURS, "
         "C.DESCRIPTION, "
         "C.NIVEAU, "
-        "C.DUREE, "
-        "C.PRIX, "
+        "LPAD(TRUNC(NVL(C.DUREE, 0)), 2, '0') || ':' || LPAD(ROUND((NVL(C.DUREE, 0) - TRUNC(NVL(C.DUREE, 0))) * 60), 2, '0') AS DUREE, "
+        "TRIM(TO_CHAR(NVL(C.PRIX, 0), 'FM99999990.000')) || ' TND' AS PRIX, "
         "TO_CHAR(C.DATE_DEBUT, 'DD/MM/YYYY') AS DATE_DEBUT, "
         "F.NOM || ' ' || F.PRENOM AS FORMATEUR, "
         "C.ID_FORMATEUR "
@@ -313,7 +333,9 @@ QSqlQueryModel *Cours::rechercher(
         "OR LOWER(C.NOM_COURS) LIKE ? "
         "OR LOWER(C.DESCRIPTION) LIKE ? "
         "OR LOWER(C.NIVEAU) LIKE ? "
+        "OR LOWER(LPAD(TRUNC(NVL(C.DUREE, 0)), 2, '0') || ':' || LPAD(ROUND((NVL(C.DUREE, 0) - TRUNC(NVL(C.DUREE, 0))) * 60), 2, '0')) LIKE ? "
         "OR LOWER(TO_CHAR(C.DUREE)) LIKE ? "
+        "OR LOWER(TRIM(TO_CHAR(NVL(C.PRIX, 0), 'FM99999990.000')) || ' TND') LIKE ? "
         "OR LOWER(TO_CHAR(C.PRIX)) LIKE ? "
         "OR LOWER(TO_CHAR(C.DATE_DEBUT, 'DD/MM/YYYY')) LIKE ? "
         "OR LOWER(F.NOM) LIKE ? "
@@ -329,8 +351,8 @@ QSqlQueryModel *Cours::rechercher(
         + "%";
 
 
-    // Il y a 10 critères dans WHERE
-    for (int i = 0; i < 10; ++i)
+    // 12 critères dans WHERE
+    for (int i = 0; i < 12; ++i)
     {
         query.addBindValue(valeur);
     }
@@ -440,7 +462,7 @@ QString Cours::getNiveau() const
 }
 
 
-int Cours::getDuree() const
+QString Cours::getDuree() const
 {
     return duree;
 }
@@ -500,7 +522,7 @@ void Cours::setNiveau(
 }
 
 
-void Cours::setDuree(int duree)
+void Cours::setDuree(const QString &duree)
 {
     this->duree =
         duree;

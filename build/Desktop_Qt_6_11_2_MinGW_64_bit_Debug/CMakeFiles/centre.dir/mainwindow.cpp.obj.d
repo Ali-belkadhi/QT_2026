@@ -399,6 +399,7 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:\Users\Mega-Pc\Desktop\projetc++\centre\utilisateur.h \
  C:/Users/Mega-Pc/Desktop/projetc++/centre/build/Desktop_Qt_6_11_2_MinGW_64_bit_Debug/centre_autogen/include/ui_mainwindow.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QApplication \
@@ -415,6 +416,8 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qinputmethod.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qlocale.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QCheckBox \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qcheckbox.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qcombobox.h \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -508,16 +511,12 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qabstractproxymodel.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/QDateTime \
  C:/Qt/6.11.2/mingw_64/include/QtWidgets/QSizePolicy \
- C:/Qt/6.11.2/mingw_64/include/QtGui/QPdfWriter \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpdfwriter.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagedpaintdevice.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagelayout.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpagesize.h \
- C:/Qt/6.11.2/mingw_64/include/QtGui/qpageranges.h \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt/6.11.2/mingw_64/include/QtWidgets/qfiledialog.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdir.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qdirlisting.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QPixmap \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QBuffer \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qbuffer.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/QFile \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qfile.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qfiledevice.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
@@ -549,7 +548,16 @@ CMakeFiles/centre.dir/mainwindow.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt/6.11.2/mingw_64/include/QtCore/qfile.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/QPdfWriter \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpdfwriter.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpagedpaintdevice.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpagelayout.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpagesize.h \
+ C:/Qt/6.11.2/mingw_64/include/QtGui/qpageranges.h \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/QFileDialog \
+ C:/Qt/6.11.2/mingw_64/include/QtWidgets/qfiledialog.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qdir.h \
+ C:/Qt/6.11.2/mingw_64/include/QtCore/qdirlisting.h \
  C:/Qt/6.11.2/mingw_64/include/QtCore/qfileinfo.h \
  C:/Qt/6.11.2/mingw_64/include/QtGui/QPageSize \
  C:/Qt/6.11.2/mingw_64/include/QtGui/QPageLayout \

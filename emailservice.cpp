@@ -90,11 +90,11 @@ QString EmailService::construireCorpsHtml(const QString &prenom,
         "<body>\n"
         "  <div class=\"container\">\n"
         "    <div class=\"header\">\n"
-        "      <h1>🎓 Centre de Formation</h1>\n"
+        "      <h1>🎓 SmartSkills</h1>\n"
         "    </div>\n"
         "    <div class=\"content\">\n"
         "      <p class=\"greeting\">Bonjour %1,</p>\n"
-        "      <p>Votre profil formateur a été créé avec succès dans notre système de gestion.</p>\n"
+        "      <p>Votre profil formateur a été créé avec succès dans l'application SmartSkills.</p>\n"
         "      <div class=\"info-box\">\n"
         "        <p><span class=\"label\">Nom :</span> %1 %2</p>\n"
         "        <p><span class=\"label\">Spécialité :</span> %3</p>\n"
@@ -102,7 +102,7 @@ QString EmailService::construireCorpsHtml(const QString &prenom,
         "      </div>\n"
         "      <p>Bienvenue parmi nous.</p>\n"
         "      <br>\n"
-        "      <p>Cordialement,<br><strong>Administration du Centre de Formation</strong></p>\n"
+        "      <p>Cordialement,<br><strong>Administration SmartSkills</strong></p>\n"
         "    </div>\n"
         "    <div class=\"footer\">\n"
         "      <p>Ce message est généré automatiquement, merci de ne pas y répondre directement.</p>\n"
@@ -182,7 +182,7 @@ void EmailService::envoyerConfirmationFormateur(const QString &prenom,
     }
 
     // 3. Préparation du sujet et du corps HTML
-    QString subject = "Bienvenue au Centre de Formation";
+    QString subject = "Bienvenue chez SmartSkills";
     QString htmlBody = construireCorpsHtml(prenom, nom, specialite, dateEmbauche);
 
     qDebug() << "[EmailService] Préparation de l'envoi vers :" << destEmail;

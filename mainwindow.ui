@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Centre de Formation</string>
+   <string>SmartSkills</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="mainLayout">
@@ -31,63 +31,77 @@
      <number>8</number>
     </property>
 
-    <!-- ===================== NAV BUTTONS ===================== -->
+    <!-- ===================== NAV BAR ===================== -->
     <item>
-     <layout class="QHBoxLayout" name="navLayout">
-      <property name="spacing">
-       <number>6</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="btnFormateurs">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>48</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>👨‍🏫 FORMATEURS</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnCours">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>48</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>11</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>📚 COURS</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QWidget" name="navWidget">
+      <layout class="QHBoxLayout" name="navLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btnFormateurs">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>👨‍🏫 FORMATEURS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnCours">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>📚 COURS</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
 
     <!-- ===================== STACKED WIDGET ===================== -->
@@ -100,8 +114,203 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
+
+      <!-- ============= PAGE LOGIN ============= -->
+      <widget class="QWidget" name="pageLogin">
+       <layout class="QVBoxLayout" name="loginOuterLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+
+        <!-- Spacer haut -->
+        <item>
+         <spacer name="loginSpacerTop">
+          <property name="orientation"><enum>Qt::Vertical</enum></property>
+          <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+         </spacer>
+        </item>
+
+        <!-- Ligne centrale : spacer gauche + carte + spacer droite -->
+        <item>
+         <layout class="QHBoxLayout" name="loginCenterLayout">
+          <item>
+           <spacer name="loginSpacerLeft">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QWidget" name="loginCard">
+            <property name="minimumSize">
+             <size><width>420</width><height>480</height></size>
+            </property>
+            <property name="maximumSize">
+             <size><width>460</width><height>520</height></size>
+            </property>
+            <layout class="QVBoxLayout" name="loginCardLayout">
+             <property name="spacing">
+              <number>18</number>
+             </property>
+             <property name="leftMargin">
+              <number>40</number>
+             </property>
+             <property name="topMargin">
+              <number>40</number>
+             </property>
+             <property name="rightMargin">
+              <number>40</number>
+             </property>
+             <property name="bottomMargin">
+              <number>40</number>
+             </property>
+
+             <!-- Logo SmartSkills -->
+             <item>
+              <widget class="QLabel" name="labelLoginLogo">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>130</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>160</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Label Email -->
+             <item>
+              <widget class="QLabel" name="labelLoginEmail">
+               <property name="font">
+                <font><pointsize>10</pointsize><bold>true</bold></font>
+               </property>
+               <property name="text"><string>Email</string></property>
+              </widget>
+             </item>
+
+             <!-- Champ Email -->
+             <item>
+              <widget class="QLineEdit" name="editLoginEmail">
+               <property name="minimumSize">
+                <size><width>0</width><height>40</height></size>
+               </property>
+               <property name="placeholderText">
+                <string>Votre adresse email</string>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Label Mot de passe -->
+             <item>
+              <widget class="QLabel" name="labelLoginPassword">
+               <property name="font">
+                <font><pointsize>10</pointsize><bold>true</bold></font>
+               </property>
+               <property name="text"><string>Mot de passe</string></property>
+              </widget>
+             </item>
+
+             <!-- Champ Mot de passe -->
+             <item>
+              <widget class="QLineEdit" name="editLoginPassword">
+               <property name="minimumSize">
+                <size><width>0</width><height>40</height></size>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
+               </property>
+               <property name="placeholderText">
+                <string>Votre mot de passe</string>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Checkbox afficher mot de passe -->
+             <item>
+              <widget class="QCheckBox" name="checkAfficherPassword">
+               <property name="text">
+                <string>Afficher le mot de passe</string>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Bouton Se connecter -->
+             <item>
+              <widget class="QPushButton" name="btnLogin">
+               <property name="minimumSize">
+                <size><width>0</width><height>44</height></size>
+               </property>
+               <property name="font">
+                <font><pointsize>11</pointsize><bold>true</bold></font>
+               </property>
+               <property name="text">
+                <string>Se connecter</string>
+               </property>
+              </widget>
+             </item>
+
+             <!-- Label erreur -->
+             <item>
+              <widget class="QLabel" name="labelLoginErreur">
+               <property name="font">
+                <font><pointsize>9</pointsize></font>
+               </property>
+               <property name="text"><string/></property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="loginSpacerRight">
+            <property name="orientation"><enum>Qt::Horizontal</enum></property>
+            <property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+
+        <!-- Spacer bas -->
+        <item>
+         <spacer name="loginSpacerBottom">
+          <property name="orientation"><enum>Qt::Vertical</enum></property>
+          <property name="sizeHint" stdset="0"><size><width>20</width><height>40</height></size></property>
+         </spacer>
+        </item>
+
+       </layout>
+      </widget>
 
       <!-- ============= PAGE COURS ============= -->
       <widget class="QWidget" name="pageCours">

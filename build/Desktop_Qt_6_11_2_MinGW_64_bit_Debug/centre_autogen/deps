@@ -737,11 +737,14 @@ centre_autogen/timestamp: \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/main.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.h \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/resources.qrc \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/smtpclient.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/smtpclient.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.cpp \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.h \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/utilisateur.cpp \
+	C:/Users/Mega-Pc/Desktop/projetc++/centre/utilisateur.h \
 	C:/Users/Mega-Pc/Desktop/projetc++/centre/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

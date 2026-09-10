@@ -217,7 +217,7 @@ QString SmtpClient::buildMimeMessage() const
     // Encodage RFC 2047 du sujet pour supporter UTF-8 (accents é, è, etc.)
     QString encodedSubject = QString("=?UTF-8?B?%1?=").arg(QString::fromUtf8(subject.toUtf8().toBase64()));
 
-    mime.append(QString("From: \"Centre de Formation\" <%1>\r\n").arg(from));
+    mime.append(QString("From: \"SmartSkills\" <%1>\r\n").arg(from));
     mime.append(QString("To: <%1>\r\n").arg(to));
     mime.append(QString("Subject: %1\r\n").arg(encodedSubject));
     mime.append(QString("Date: %1\r\n").arg(QDateTime::currentDateTime().toString(Qt::RFC2822Date)));

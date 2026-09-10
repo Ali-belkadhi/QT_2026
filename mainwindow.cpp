@@ -8,6 +8,7 @@
 #include "statcours.h"
 
 #include "emailservice.h"
+#include "utilisateur.h"
 
 
 #include <QMessageBox>
@@ -32,6 +33,10 @@
 #include <QDateTime>
 
 #include <QSizePolicy>
+#include <QPixmap>
+#include <QIcon>
+#include <QBuffer>
+#include <QFile>
 
 
 // =====================================================
@@ -114,23 +119,20 @@ protected:
         // =================================================
 
         QString texteGauche =
-            gauche.toString();
-
+            gauche.toString().trimmed();
 
         QString texteDroite =
-            droite.toString();
+            droite.toString().trimmed();
 
-
-        texteGauche.replace(
+        texteGauche = texteGauche.remove("TND").remove("DT").replace(
             ",",
             "."
-            );
+            ).trimmed();
 
-
-        texteDroite.replace(
+        texteDroite = texteDroite.remove("TND").remove("DT").replace(
             ",",
             "."
-            );
+            ).trimmed();
 
 
         bool okGauche = false;
@@ -159,6 +161,25 @@ protected:
 
 
         // =================================================
+        // TRI DES DUREES (HH:MM)
+        // =================================================
+
+        if (texteGauche.contains(":") &&
+            texteDroite.contains(":"))
+        {
+            QStringList pG = texteGauche.split(":");
+            QStringList pD = texteDroite.split(":");
+
+            if (pG.size() == 2 && pD.size() == 2)
+            {
+                int minG = pG[0].toInt() * 60 + pG[1].toInt();
+                int minD = pD[0].toInt() * 60 + pD[1].toInt();
+                return minG < minD;
+            }
+        }
+
+
+        // =================================================
         // TRI TEXTE
         // =================================================
 
@@ -181,6 +202,55 @@ protected:
 
 namespace
 {
+
+void marquerErreur(QWidget *widget)
+{
+    if (widget)
+    {
+        widget->setStyleSheet(
+            "border: 2px solid #e53935;"
+            "background-color: #fff5f5;"
+            "color: black;"
+            "border-radius: 5px;"
+            "padding: 6px;"
+            );
+    }
+}
+
+
+QPixmap getLogoPixmap()
+{
+    QPixmap pix(":/logo.png");
+    if (pix.isNull())
+        pix.load(QCoreApplication::applicationDirPath() + "/logo.png");
+    if (pix.isNull())
+        pix.load(QCoreApplication::applicationDirPath() + "/../logo.png");
+    if (pix.isNull())
+        pix.load(QCoreApplication::applicationDirPath() + "/../../logo.png");
+    if (pix.isNull())
+        pix.load("logo.png");
+    if (pix.isNull())
+        pix.load("../logo.png");
+    if (pix.isNull())
+        pix.load("c:/Users/Mega-Pc/Desktop/projetc++/centre/logo.png");
+    return pix;
+}
+
+
+QString getLogoBase64()
+{
+    QPixmap pix = getLogoPixmap();
+    if (!pix.isNull())
+    {
+        QByteArray bytes;
+        QBuffer buffer(&bytes);
+        buffer.open(QIODevice::WriteOnly);
+        pix.save(&buffer, "PNG");
+        return QString::fromLatin1(bytes.toBase64());
+    }
+    return QString();
+}
+
 
 QString nomFichierValide(
     QString nom
@@ -213,8 +283,6 @@ QString valeurHtml(
     return texte.toHtmlEscaped();
 }
 
-
-// =====================================================
 
 bool enregistrerPdf(
     QWidget *parent,
@@ -290,22 +358,26 @@ bool enregistrerPdf(
 
 
     pdf.setCreator(
-        "Centre de Formation"
+        "SmartSkills"
         );
 
 
     QTextDocument document;
-
+    QPixmap logoPix = getLogoPixmap();
+    if (!logoPix.isNull())
+    {
+        document.addResource(QTextDocument::ImageResource, QUrl("logo.png"), logoPix);
+        document.addResource(QTextDocument::ImageResource, QUrl(":/logo.png"), logoPix);
+        document.addResource(QTextDocument::ImageResource, QUrl("qrc:/logo.png"), logoPix);
+    }
 
     document.setHtml(
         html
         );
 
-
     document.print(
         &pdf
         );
-
 
     return true;
 }
@@ -313,9 +385,8 @@ bool enregistrerPdf(
 }
 
 
-// =====================================================
 // CONSTRUCTEUR
-// =====================================================
+
 
 MainWindow::MainWindow(
     QWidget *parent
@@ -326,9 +397,7 @@ MainWindow::MainWindow(
     ui->setupUi(this);
 
 
-    // =================================================
     // SERVICE EMAIL
-    // =================================================
 
     emailService = new EmailService(this);
 
@@ -354,10 +423,32 @@ MainWindow::MainWindow(
         700
         );
 
+    setWindowTitle("SmartSkills");
 
-    // =================================================
+
+    // LOGO SMARTSKILLS
+
+
+    QPixmap logoPix(":/logo.png");
+    if (logoPix.isNull())
+    {
+        logoPix.load("logo.png");
+    }
+    if (logoPix.isNull())
+    {
+        logoPix.load("../logo.png");
+    }
+
+    if (!logoPix.isNull())
+    {
+        setWindowIcon(QIcon(logoPix));
+        ui->labelLoginLogo->setPixmap(
+            logoPix.scaled(260, 140, Qt::KeepAspectRatio, Qt::SmoothTransformation)
+            );
+        ui->labelLoginLogo->setAlignment(Qt::AlignCenter);
+    }
+
     // STYLE
-    // =================================================
 
     QString style =
 
@@ -451,6 +542,91 @@ MainWindow::MainWindow(
     setStyleSheet(
         style
         );
+
+
+
+    // STYLE LOGIN CARD
+    // Carte blanche centrée sur fond sombre
+
+
+    // Fond de la pageLogin : identique au reste (#172033)
+    // La carte loginCard reçoit un style blanc distinct
+
+    ui->loginCard->setStyleSheet(
+
+        // Carte blanche avec coins arrondis
+        "QWidget#loginCard {"
+        "  background-color: #ffffff;"
+        "  border-radius: 16px;"
+        "  border: 1px solid #e0e4ea;"
+        "}"
+
+        // Labels dans la carte : texte sombre
+        "QWidget#loginCard QLabel {"
+        "  background-color: transparent;"
+        "  color: #1a2537;"
+        "}"
+
+
+
+        // Champs de saisie
+        "QLineEdit#editLoginEmail,"
+        "QLineEdit#editLoginPassword {"
+        "  background-color: #f5f7fa;"
+        "  color: #1a2537;"
+        "  border: 1.5px solid #c8d0db;"
+        "  border-radius: 8px;"
+        "  padding: 8px 12px;"
+        "  font-size: 13px;"
+        "}"
+
+        "QLineEdit#editLoginEmail:focus,"
+        "QLineEdit#editLoginPassword:focus {"
+        "  border: 2px solid #1565c0;"
+        "  background-color: #eef4ff;"
+        "}"
+
+        // Checkbox
+        "QCheckBox#checkAfficherPassword {"
+        "  color: #546e8a;"
+        "  background: transparent;"
+        "  font-size: 12px;"
+        "}"
+
+        "QCheckBox#checkAfficherPassword::indicator {"
+        "  width: 16px;"
+        "  height: 16px;"
+        "}"
+
+        // Bouton Se connecter (bleu)
+        "QPushButton#btnLogin {"
+        "  background-color: #1565c0;"
+        "  color: white;"
+        "  border: none;"
+        "  border-radius: 8px;"
+        "  padding: 10px;"
+        "  font-size: 13px;"
+        "  font-weight: bold;"
+        "}"
+
+        "QPushButton#btnLogin:hover {"
+        "  background-color: #1976d2;"
+        "}"
+
+        "QPushButton#btnLogin:pressed {"
+        "  background-color: #0d47a1;"
+        "}"
+
+        // Label erreur (rouge)
+        "QLabel#labelLoginErreur {"
+        "  color: #c62828;"
+        "  background: transparent;"
+        "  font-weight: bold;"
+        "}"
+        );
+
+
+
 
 
     // =================================================
@@ -599,30 +775,36 @@ MainWindow::MainWindow(
 
 
     // =================================================
-    // PAGE INITIALE
+    // PAGE INITIALE : LOGIN
     // =================================================
 
+    utilisateurConnecte = false;
+
+
+    // Afficher la page de connexion au démarrage
     ui->stackedWidget
         ->setCurrentWidget(
-            ui->pageFormateurs
+            ui->pageLogin
             );
 
 
-    // Bouton Formateurs actif au démarrage
-    activerBoutonNav(
-        ui->btnFormateurs,
-        ui->btnCours
-        );
+    // Initialiser le champ mot de passe
+    ui->editLoginPassword
+        ->setEchoMode(
+            QLineEdit::Password
+            );
 
 
-    afficherFormateurs();
+    // Vider le message d'erreur
+    ui->labelLoginErreur->clear();
 
 
-    // Génération IDs automatiques au démarrage
-    viderChampsFormateur();
+    // Masquer la barre de navigation (Formateurs / Cours) sur la page de login
+    ui->navWidget->setVisible(false);
 
 
-    chargerFormateursCombo();
+    // NOTE : afficherFormateurs(), chargerFormateursCombo(), afficherCours()
+    // ne sont PAS appelées ici — uniquement après connexion réussie.
 }
 
 
@@ -915,7 +1097,7 @@ void MainWindow::configurerControlesSaisie()
     // =================================================
 
     QRegularExpression regexNombre(
-        "^[0-9]{0,8}([\\.,][0-9]{0,2})?$"
+        "^[0-9]{0,8}([\\.,][0-9]{0,3})?$"
         );
 
 
@@ -991,14 +1173,53 @@ void MainWindow::configurerControlesSaisie()
             );
 
 
+    QRegularExpression regexDuree(
+        "^[0-9]{0,5}(:[0-9]{0,2})?$"
+        );
+
     ui->editDuree
         ->setValidator(
-            new QIntValidator(
-                1,
-                10000,
+            new QRegularExpressionValidator(
+                regexDuree,
                 this
                 )
             );
+
+    ui->editDuree
+        ->setMaxLength(
+            8
+            );
+
+    ui->editDuree
+        ->setPlaceholderText(
+            "Ex: 10:30 ou 55:00"
+            );
+
+
+    // =================================================
+    // REINITIALISATION DU STYLE LORS DE LA SAISIE
+    // =================================================
+
+    auto resetOnTyping = [](QLineEdit *edit) {
+        QObject::connect(edit, &QLineEdit::textChanged, [edit]() {
+            edit->setStyleSheet("");
+        });
+    };
+
+    resetOnTyping(ui->editNom);
+    resetOnTyping(ui->editPrenom);
+    resetOnTyping(ui->editEmail);
+    resetOnTyping(ui->editTelephone);
+    resetOnTyping(ui->editSalaire);
+
+    resetOnTyping(ui->editNomCours);
+    resetOnTyping(ui->editDescriptionCours);
+    resetOnTyping(ui->editDuree);
+    resetOnTyping(ui->editPrix);
+
+    connect(ui->comboFormateur, &QComboBox::currentTextChanged, [this]() {
+        ui->comboFormateur->setStyleSheet("");
+    });
 }
 
 
@@ -1040,17 +1261,27 @@ bool MainWindow::validerEmail(const QString &email)
 
 bool MainWindow::validerFormateur()
 {
+    ui->editNom->setStyleSheet("");
+    ui->editPrenom->setStyleSheet("");
+    ui->editEmail->setStyleSheet("");
+    ui->editTelephone->setStyleSheet("");
+    ui->editSalaire->setStyleSheet("");
+
+
     if (ui->editIdFormateur
             ->text()
             .trimmed()
             .isEmpty())
     {
+        marquerErreur(ui->editIdFormateur);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "L'ID du formateur est obligatoire."
             );
 
+        ui->editIdFormateur->setFocus();
         return false;
     }
 
@@ -1060,12 +1291,15 @@ bool MainWindow::validerFormateur()
             .trimmed()
             .length() < 2)
     {
+        marquerErreur(ui->editNom);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "Le nom doit contenir au moins 2 caractères."
             );
 
+        ui->editNom->setFocus();
         return false;
     }
 
@@ -1075,12 +1309,15 @@ bool MainWindow::validerFormateur()
             .trimmed()
             .length() < 2)
     {
+        marquerErreur(ui->editPrenom);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "Le prénom doit contenir au moins 2 caractères."
             );
 
+        ui->editPrenom->setFocus();
         return false;
     }
 
@@ -1093,6 +1330,8 @@ bool MainWindow::validerFormateur()
 
     if (!validerEmail(email))
     {
+        marquerErreur(ui->editEmail);
+
         QMessageBox::warning(
             this,
             "Validation",
@@ -1100,7 +1339,6 @@ bool MainWindow::validerFormateur()
             );
 
         ui->editEmail->setFocus();
-
         return false;
     }
 
@@ -1111,15 +1349,18 @@ bool MainWindow::validerFormateur()
             .trimmed();
 
 
-    if (!telephone.isEmpty() &&
+    if (telephone.isEmpty() ||
         telephone.length() < 8)
     {
+        marquerErreur(ui->editTelephone);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "Le téléphone doit contenir au moins 8 chiffres."
             );
 
+        ui->editTelephone->setFocus();
         return false;
     }
 
@@ -1150,12 +1391,15 @@ bool MainWindow::validerFormateur()
         if (!ok ||
             valeur < 0)
         {
+            marquerErreur(ui->editSalaire);
+
             QMessageBox::warning(
                 this,
                 "Contrôle de saisie",
-                "Le salaire doit être positif."
+                "Le salaire doit être un nombre positif."
                 );
 
+            ui->editSalaire->setFocus();
             return false;
         }
     }
@@ -1171,17 +1415,27 @@ bool MainWindow::validerFormateur()
 
 bool MainWindow::validerCours()
 {
+    ui->editNomCours->setStyleSheet("");
+    ui->editDescriptionCours->setStyleSheet("");
+    ui->editDuree->setStyleSheet("");
+    ui->editPrix->setStyleSheet("");
+    ui->comboFormateur->setStyleSheet("");
+
+
     if (ui->editIdCours
             ->text()
             .trimmed()
             .isEmpty())
     {
+        marquerErreur(ui->editIdCours);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "L'ID du cours est obligatoire."
             );
 
+        ui->editIdCours->setFocus();
         return false;
     }
 
@@ -1191,41 +1445,60 @@ bool MainWindow::validerCours()
             .trimmed()
             .length() < 2)
     {
+        marquerErreur(ui->editNomCours);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
-            "Le nom du cours est obligatoire."
+            "Le nom du cours doit contenir au moins 2 caractères."
             );
 
+        ui->editNomCours->setFocus();
         return false;
     }
 
 
-    if (ui->editDescriptionCours
+    QString description =
+        ui->editDescriptionCours
             ->text()
-            .trimmed()
-            .isEmpty())
+            .trimmed();
+
+    if (description.length() < 5)
     {
+        marquerErreur(ui->editDescriptionCours);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
-            "La description est obligatoire."
+            "La description doit contenir au moins 5 caractères."
             );
 
+        ui->editDescriptionCours->setFocus();
         return false;
     }
 
 
-    if (ui->editDuree
+    QString duree =
+        ui->editDuree
             ->text()
-            .toInt() <= 0)
+            .trimmed();
+
+    // Deux-points ':' obligatoires avec minutes valides (00-59)
+    static const QRegularExpression regexDureeValide(
+        "^[0-9]{1,5}:[0-5][0-9]$"
+        );
+
+    if (duree.isEmpty() || !regexDureeValide.match(duree).hasMatch())
     {
+        marquerErreur(ui->editDuree);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
-            "La durée doit être supérieure à 0."
+            "La durée est obligatoire et doit obligatoirement contenir les deux-points ':' (ex: 10:30 ou 55:00)."
             );
 
+        ui->editDuree->setFocus();
         return false;
     }
 
@@ -1251,28 +1524,36 @@ bool MainWindow::validerCours()
             );
 
 
-    if (!ok ||
+    if (prix.isEmpty() ||
+        !ok ||
         valeur < 0)
     {
+        marquerErreur(ui->editPrix);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
-            "Le prix doit être positif."
+            "Le prix est obligatoire et doit être un nombre positif."
             );
 
+        ui->editPrix->setFocus();
         return false;
     }
 
 
     if (ui->comboFormateur
-            ->currentIndex() < 0)
+            ->currentIndex() < 0 ||
+        ui->comboFormateur->currentData().toInt() <= 0)
     {
+        marquerErreur(ui->comboFormateur);
+
         QMessageBox::warning(
             this,
             "Contrôle de saisie",
             "Veuillez sélectionner un formateur."
             );
 
+        ui->comboFormateur->setFocus();
         return false;
     }
 
@@ -1553,6 +1834,18 @@ void MainWindow::installerModeleCours(
 
 void MainWindow::on_btnFormateurs_clicked()
 {
+    // Sécurité : connexion obligatoire
+    if (!utilisateurConnecte)
+    {
+        ui->stackedWidget
+            ->setCurrentWidget(
+                ui->pageLogin
+                );
+
+        return;
+    }
+
+
     activerBoutonNav(
         ui->btnFormateurs,
         ui->btnCours
@@ -1575,6 +1868,18 @@ void MainWindow::on_btnFormateurs_clicked()
 
 void MainWindow::on_btnCours_clicked()
 {
+    // Sécurité : connexion obligatoire
+    if (!utilisateurConnecte)
+    {
+        ui->stackedWidget
+            ->setCurrentWidget(
+                ui->pageLogin
+                );
+
+        return;
+    }
+
+
     activerBoutonNav(
         ui->btnCours,
         ui->btnFormateurs
@@ -1820,12 +2125,17 @@ void MainWindow::on_tableFormateurs_clicked(
     }
 
 
+    QString salaireTexte =
+        model
+            ->index(row, 6)
+            .data()
+            .toString();
+
+    salaireTexte = salaireTexte.remove("TND").remove("DT").trimmed();
+
     ui->editSalaire
         ->setText(
-            model
-                ->index(row, 6)
-                .data()
-                .toString()
+            salaireTexte
             );
 
 
@@ -2355,7 +2665,7 @@ void MainWindow::on_btnAjouterCours_clicked()
 
         ui->editDuree
             ->text()
-            .toInt(),
+            .trimmed(),
 
         prix.toDouble(),
 
@@ -2486,12 +2796,17 @@ void MainWindow::on_tableCours_clicked(
             );
 
 
+    QString prixTexte =
+        model
+            ->index(row, 5)
+            .data()
+            .toString();
+
+    prixTexte = prixTexte.remove("TND").remove("DT").trimmed();
+
     ui->editPrix
         ->setText(
-            model
-                ->index(row, 5)
-                .data()
-                .toString()
+            prixTexte
             );
 
 
@@ -2625,7 +2940,7 @@ void MainWindow::on_btnModifierCours_clicked()
 
         ui->editDuree
             ->text()
-            .toInt(),
+            .trimmed(),
 
         prix.toDouble(),
 
@@ -3005,6 +3320,28 @@ void MainWindow::on_btnPdfFormateur_clicked()
                 "dd/MM/yyyy à HH:mm"
                 );
 
+    QString logoB64 = getLogoBase64();
+    QString logoHtml;
+    if (!logoB64.isEmpty())
+    {
+        logoHtml = QString("<div style=\"text-align:center; margin-bottom: 10px;\"><img src=\"data:image/png;base64,%1\" height=\"60\" /></div>").arg(logoB64);
+    }
+    else
+    {
+        logoHtml = "<div style=\"text-align:center; margin-bottom: 10px;\"><img src=\"logo.png\" height=\"60\" /></div>";
+    }
+
+    QString salaireAffiche = salaire.trimmed();
+    while (salaireAffiche.endsWith(" TND", Qt::CaseInsensitive) || salaireAffiche.endsWith("TND", Qt::CaseInsensitive) || salaireAffiche.endsWith(" DT", Qt::CaseInsensitive) || salaireAffiche.endsWith("DT", Qt::CaseInsensitive))
+    {
+        if (salaireAffiche.endsWith(" TND", Qt::CaseInsensitive)) salaireAffiche.chop(4);
+        else if (salaireAffiche.endsWith("TND", Qt::CaseInsensitive)) salaireAffiche.chop(3);
+        else if (salaireAffiche.endsWith(" DT", Qt::CaseInsensitive)) salaireAffiche.chop(3);
+        else if (salaireAffiche.endsWith("DT", Qt::CaseInsensitive)) salaireAffiche.chop(2);
+        salaireAffiche = salaireAffiche.trimmed();
+    }
+    salaireAffiche += " TND";
+
 
     QString html =
         QString(
@@ -3030,18 +3367,22 @@ body
     background-color: #172033;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 22px;
 }
 
 .header h1
 {
-    font-size: 24pt;
-    margin: 0;
+    font-size: 22pt;
+    margin: 5px 0 0 0;
+    letter-spacing: 2px;
 }
 
 .header h2
 {
-    font-size: 15pt;
+    font-size: 13pt;
+    margin: 6px 0 0 0;
+    color: #90caf9;
+    font-weight: normal;
 }
 
 .meta
@@ -3108,8 +3449,10 @@ td
 
 <div class="header">
 
+%10
+
 <h1>
-CENTRE DE FORMATION
+SMARTSKILLS
 </h1>
 
 <h2>
@@ -3171,7 +3514,7 @@ Référence : FORM-%2
 
 <tr>
 <td class="label">Salaire</td>
-<td>%8 TND</td>
+<td>%8</td>
 </tr>
 
 <tr>
@@ -3191,7 +3534,7 @@ Informations administratives
 <br><br>
 
 Cette fiche personnalisée a été générée automatiquement
-par l'application de gestion du centre de formation.
+par l'application SmartSkills.
 
 </div>
 
@@ -3211,7 +3554,7 @@ ____________________________
 
 <div class="footer">
 
-Centre de Formation • Document administratif
+SmartSkills • Document administratif
 
 </div>
 
@@ -3229,8 +3572,9 @@ Centre de Formation • Document administratif
                 valeurHtml(email),
                 valeurHtml(telephone),
                 valeurHtml(specialite),
-                valeurHtml(salaire),
-                valeurHtml(date)
+                valeurHtml(salaireAffiche),
+                valeurHtml(date),
+                logoHtml
                 );
 
 
@@ -3345,6 +3689,28 @@ void MainWindow::on_btnPdfCours_clicked()
                 "dd/MM/yyyy à HH:mm"
                 );
 
+    QString logoB64 = getLogoBase64();
+    QString logoHtml;
+    if (!logoB64.isEmpty())
+    {
+        logoHtml = QString("<div style=\"text-align:center; margin-bottom: 10px;\"><img src=\"data:image/png;base64,%1\" height=\"60\" /></div>").arg(logoB64);
+    }
+    else
+    {
+        logoHtml = "<div style=\"text-align:center; margin-bottom: 10px;\"><img src=\"logo.png\" height=\"60\" /></div>";
+    }
+
+    QString prixAffiche = prix.trimmed();
+    while (prixAffiche.endsWith(" TND", Qt::CaseInsensitive) || prixAffiche.endsWith("TND", Qt::CaseInsensitive) || prixAffiche.endsWith(" DT", Qt::CaseInsensitive) || prixAffiche.endsWith("DT", Qt::CaseInsensitive))
+    {
+        if (prixAffiche.endsWith(" TND", Qt::CaseInsensitive)) prixAffiche.chop(4);
+        else if (prixAffiche.endsWith("TND", Qt::CaseInsensitive)) prixAffiche.chop(3);
+        else if (prixAffiche.endsWith(" DT", Qt::CaseInsensitive)) prixAffiche.chop(3);
+        else if (prixAffiche.endsWith("DT", Qt::CaseInsensitive)) prixAffiche.chop(2);
+        prixAffiche = prixAffiche.trimmed();
+    }
+    prixAffiche += " TND";
+
 
     QString html =
         QString(
@@ -3370,18 +3736,22 @@ body
     background-color: #172033;
     color: white;
     text-align: center;
-    padding: 25px;
+    padding: 22px;
 }
 
 .header h1
 {
-    font-size: 24pt;
-    margin: 0;
+    font-size: 22pt;
+    margin: 5px 0 0 0;
+    letter-spacing: 2px;
 }
 
 .header h2
 {
-    font-size: 15pt;
+    font-size: 13pt;
+    margin: 6px 0 0 0;
+    color: #90caf9;
+    font-weight: normal;
 }
 
 .meta
@@ -3450,8 +3820,10 @@ td
 
 <div class="header">
 
+%10
+
 <h1>
-CENTRE DE FORMATION
+SMARTSKILLS
 </h1>
 
 <h2>
@@ -3498,12 +3870,12 @@ Référence : CRS-%2
 
 <tr>
 <td class="label">Durée</td>
-<td>%5 heure(s)</td>
+<td>%5</td>
 </tr>
 
 <tr>
 <td class="label">Prix</td>
-<td>%6 TND</td>
+<td>%6</td>
 </tr>
 
 <tr>
@@ -3547,7 +3919,7 @@ ____________________________
 
 <div class="footer">
 
-Centre de Formation • Fiche pédagogique personnalisée
+SmartSkills • Fiche pédagogique personnalisée
 
 </div>
 
@@ -3564,10 +3936,11 @@ Centre de Formation • Fiche pédagogique personnalisée
                 valeurHtml(nom.toUpper()),
                 valeurHtml(niveau),
                 valeurHtml(duree),
-                valeurHtml(prix),
+                valeurHtml(prixAffiche),
                 valeurHtml(date),
                 valeurHtml(formateur),
-                valeurHtml(description)
+                valeurHtml(description),
+                logoHtml
                 );
 
 
@@ -3654,3 +4027,154 @@ void MainWindow::on_btnStatCours_clicked()
     fenetreStatCours
         ->activateWindow();
 }
+
+
+// =====================================================
+// SLOT : BOUTON LOGIN
+// =====================================================
+
+void MainWindow::on_btnLogin_clicked()
+{
+    // -------------------------------------------------
+    // 1. Récupérer les champs
+    // -------------------------------------------------
+
+    QString email =
+        ui->editLoginEmail
+            ->text()
+            .trimmed();
+
+
+    QString password =
+        ui->editLoginPassword
+            ->text();
+
+
+    // -------------------------------------------------
+    // 2. Validation : champs vides
+    // -------------------------------------------------
+
+    if (email.isEmpty() ||
+        password.isEmpty())
+    {
+        ui->labelLoginErreur
+            ->setText(
+                "Veuillez saisir votre email et votre mot de passe."
+                );
+
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // 3. Authentification
+    // -------------------------------------------------
+
+    Utilisateur utilisateur;
+
+
+    bool ok = utilisateur.authentifier(
+        email,
+        password
+        );
+
+
+    // -------------------------------------------------
+    // 4. Succès
+    // -------------------------------------------------
+
+    if (ok)
+    {
+        utilisateurConnecte = true;
+
+
+        // Vider le message d'erreur
+        ui->labelLoginErreur->clear();
+
+
+        // Vider le champ mot de passe
+        ui->editLoginPassword->clear();
+
+
+        // Afficher la barre de navigation (Formateurs / Cours)
+        ui->navWidget->setVisible(true);
+
+
+        // Charger les données
+        afficherFormateurs();
+        viderChampsFormateur();
+        chargerFormateursCombo();
+
+
+        // Bouton Formateurs actif
+        activerBoutonNav(
+            ui->btnFormateurs,
+            ui->btnCours
+            );
+
+
+        // Aller sur la page Formateurs
+        ui->stackedWidget
+            ->setCurrentWidget(
+                ui->pageFormateurs
+                );
+
+
+        QMessageBox::information(
+            this,
+            "Connexion",
+            "Connexion réussie."
+            );
+    }
+
+
+    // -------------------------------------------------
+    // 5. Échec
+    // -------------------------------------------------
+
+    else
+    {
+        utilisateurConnecte = false;
+
+
+        ui->labelLoginErreur
+            ->setText(
+                "Email ou mot de passe incorrect."
+                );
+
+
+        ui->editLoginPassword->clear();
+
+
+        ui->editLoginPassword->setFocus();
+    }
+}
+
+
+// =====================================================
+// SLOT : AFFICHER / MASQUER MOT DE PASSE
+// =====================================================
+
+void MainWindow::on_checkAfficherPassword_toggled(
+    bool checked
+    )
+{
+    if (checked)
+    {
+        ui->editLoginPassword
+            ->setEchoMode(
+                QLineEdit::Normal
+                );
+    }
+    else
+    {
+        ui->editLoginPassword
+            ->setEchoMode(
+                QLineEdit::Password
+                );
+    }
+}
+
+
+
+

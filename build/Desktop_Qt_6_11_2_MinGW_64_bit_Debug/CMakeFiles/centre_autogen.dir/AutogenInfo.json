@@ -467,7 +467,8 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
 		"C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
-		"C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6/windows/app.exe.manifest.in"
+		"C:/Qt/6.11.2/mingw_64/lib/cmake/Qt6/windows/app.exe.manifest.in",
+		"C:/Users/Mega-Pc/Desktop/projetc++/centre/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/Mega-Pc/Desktop/projetc++/centre",
 	"CROSS_CONFIG" : false,
@@ -521,6 +522,12 @@
 			"C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.h",
 			"MU",
 			"EWIEGA46WW/moc_statformateur.cpp",
+			null
+		],
+		[
+			"C:/Users/Mega-Pc/Desktop/projetc++/centre/utilisateur.h",
+			"MU",
+			"EWIEGA46WW/moc_utilisateur.cpp",
 			null
 		]
 	],
@@ -628,6 +635,11 @@
 		[ "C:/Users/Mega-Pc/Desktop/projetc++/centre/statcours.cpp", "MU", null ],
 		[
 			"C:/Users/Mega-Pc/Desktop/projetc++/centre/statformateur.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Mega-Pc/Desktop/projetc++/centre/utilisateur.cpp",
 			"MU",
 			null
 		]

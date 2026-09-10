@@ -39,8 +39,11 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "on_btnFormateurs_clicked",
+        "on_btnLogin_clicked",
         "",
+        "on_checkAfficherPassword_toggled",
+        "checked",
+        "on_btnFormateurs_clicked",
         "on_btnCours_clicked",
         "on_btnAjouterFormateur_clicked",
         "on_btnModifierFormateur_clicked",
@@ -64,50 +67,56 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'on_btnFormateurs_clicked'
+        // Slot 'on_btnLogin_clicked'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnCours_clicked'
-        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnAjouterFormateur_clicked'
-        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnModifierFormateur_clicked'
+        // Slot 'on_checkAfficherPassword_toggled'
+        QtMocHelpers::SlotData<void(bool)>(3, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 4 },
+        }}),
+        // Slot 'on_btnFormateurs_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnSupprimerFormateur_clicked'
+        // Slot 'on_btnCours_clicked'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnAfficherFormateurs_clicked'
+        // Slot 'on_btnAjouterFormateur_clicked'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnModifierFormateur_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSupprimerFormateur_clicked'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnAfficherFormateurs_clicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_tableFormateurs_clicked'
-        QtMocHelpers::SlotData<void(const QModelIndex &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 9, 10 },
+        QtMocHelpers::SlotData<void(const QModelIndex &)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 12, 13 },
         }}),
         // Slot 'on_editRechercheFormateur_textChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 12 },
+        QtMocHelpers::SlotData<void(const QString &)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 15 },
         }}),
         // Slot 'on_btnPdfFormateur_clicked'
-        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnStatFormateur_clicked'
-        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnAjouterCours_clicked'
-        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnModifierCours_clicked'
         QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnSupprimerCours_clicked'
+        // Slot 'on_btnStatFormateur_clicked'
         QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_btnAfficherCours_clicked'
+        // Slot 'on_btnAjouterCours_clicked'
         QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnModifierCours_clicked'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSupprimerCours_clicked'
+        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnAfficherCours_clicked'
+        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_tableCours_clicked'
-        QtMocHelpers::SlotData<void(const QModelIndex &)>(19, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 9, 10 },
+        QtMocHelpers::SlotData<void(const QModelIndex &)>(22, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 12, 13 },
         }}),
         // Slot 'on_editRechercheCours_textChanged'
-        QtMocHelpers::SlotData<void(const QString &)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 12 },
+        QtMocHelpers::SlotData<void(const QString &)>(23, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 15 },
         }}),
         // Slot 'on_btnPdfCours_clicked'
-        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_btnStatCours_clicked'
-        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(25, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -131,24 +140,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->on_btnFormateurs_clicked(); break;
-        case 1: _t->on_btnCours_clicked(); break;
-        case 2: _t->on_btnAjouterFormateur_clicked(); break;
-        case 3: _t->on_btnModifierFormateur_clicked(); break;
-        case 4: _t->on_btnSupprimerFormateur_clicked(); break;
-        case 5: _t->on_btnAfficherFormateurs_clicked(); break;
-        case 6: _t->on_tableFormateurs_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
-        case 7: _t->on_editRechercheFormateur_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 8: _t->on_btnPdfFormateur_clicked(); break;
-        case 9: _t->on_btnStatFormateur_clicked(); break;
-        case 10: _t->on_btnAjouterCours_clicked(); break;
-        case 11: _t->on_btnModifierCours_clicked(); break;
-        case 12: _t->on_btnSupprimerCours_clicked(); break;
-        case 13: _t->on_btnAfficherCours_clicked(); break;
-        case 14: _t->on_tableCours_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
-        case 15: _t->on_editRechercheCours_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
-        case 16: _t->on_btnPdfCours_clicked(); break;
-        case 17: _t->on_btnStatCours_clicked(); break;
+        case 0: _t->on_btnLogin_clicked(); break;
+        case 1: _t->on_checkAfficherPassword_toggled((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 2: _t->on_btnFormateurs_clicked(); break;
+        case 3: _t->on_btnCours_clicked(); break;
+        case 4: _t->on_btnAjouterFormateur_clicked(); break;
+        case 5: _t->on_btnModifierFormateur_clicked(); break;
+        case 6: _t->on_btnSupprimerFormateur_clicked(); break;
+        case 7: _t->on_btnAfficherFormateurs_clicked(); break;
+        case 8: _t->on_tableFormateurs_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 9: _t->on_editRechercheFormateur_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 10: _t->on_btnPdfFormateur_clicked(); break;
+        case 11: _t->on_btnStatFormateur_clicked(); break;
+        case 12: _t->on_btnAjouterCours_clicked(); break;
+        case 13: _t->on_btnModifierCours_clicked(); break;
+        case 14: _t->on_btnSupprimerCours_clicked(); break;
+        case 15: _t->on_btnAfficherCours_clicked(); break;
+        case 16: _t->on_tableCours_clicked((*reinterpret_cast<std::add_pointer_t<QModelIndex>>(_a[1]))); break;
+        case 17: _t->on_editRechercheCours_textChanged((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
+        case 18: _t->on_btnPdfCours_clicked(); break;
+        case 19: _t->on_btnStatCours_clicked(); break;
         default: ;
         }
     }
@@ -173,14 +184,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 20;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 20)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 20;
     }
     return _id;
 }

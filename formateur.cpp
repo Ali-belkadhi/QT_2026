@@ -182,7 +182,7 @@ QSqlQueryModel *Formateur::afficher()
         "EMAIL, "
         "TELEPHONE, "
         "SPECIALITE, "
-        "SALAIRE, "
+        "TRIM(TO_CHAR(SALAIRE, 'FM99999990.000')) || ' TND' AS SALAIRE, "
         "TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY') "
         "FROM FORMATEUR "
         "ORDER BY ID_FORMATEUR"
@@ -282,7 +282,7 @@ QSqlQueryModel *Formateur::rechercher(
         "EMAIL, "
         "TELEPHONE, "
         "SPECIALITE, "
-        "SALAIRE, "
+        "TRIM(TO_CHAR(SALAIRE, 'FM99999990.000')) || ' TND' AS SALAIRE, "
         "TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY') "
         "FROM FORMATEUR "
         "WHERE "
@@ -292,6 +292,7 @@ QSqlQueryModel *Formateur::rechercher(
         "OR LOWER(EMAIL) LIKE ? "
         "OR LOWER(TELEPHONE) LIKE ? "
         "OR LOWER(SPECIALITE) LIKE ? "
+        "OR LOWER(TRIM(TO_CHAR(SALAIRE, 'FM99999990.000')) || ' TND') LIKE ? "
         "OR LOWER(TO_CHAR(SALAIRE)) LIKE ? "
         "OR LOWER(TO_CHAR(DATE_EMBAUCHE, 'DD/MM/YYYY')) LIKE ? "
         "ORDER BY ID_FORMATEUR"
@@ -304,8 +305,8 @@ QSqlQueryModel *Formateur::rechercher(
         + "%";
 
 
-    // 8 critères
-    for (int i = 0; i < 8; i++)
+    // 9 critères
+    for (int i = 0; i < 9; i++)
     {
         query.addBindValue(
             valeur
